@@ -14,13 +14,11 @@ jobs:
           command: zip -r function.zip .
       - aws-cli/setup:
           profile-name: volchenok
-          run: "aws lambda update-function-code --function-name my-function --zip-file fileb://function.zip"
+      - run: "aws lambda update-function-code --function-name testFunction --zip-file fileb://function.zip"
 workflows:
-  build_and_deploy:
+  deploy_function:
     jobs:
       - deploy:
           filters:
             branches:
               only: main
-          requires:
-            - build
