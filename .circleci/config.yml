@@ -3,7 +3,16 @@ orbs:
   node: circleci/node@4.5.1
   aws-cli: circleci/aws-cli@2.0.3
 jobs:
-  deploy:
+  build-and-test:
+    docker:
+      - image: cimg/node:15.1
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: Run tests
+          command: npm test
+  build-and-deploy:
     docker:
       - image: cimg/node:12.0
     steps:
@@ -13,12 +22,18 @@ jobs:
           name: zip
           command: zip -r function.zip .
       - aws-cli/setup:
-          profile-name: volchenok
-      - run: "aws lambda update-function-code --function-name testFunction --zip-file fileb://function.zip"
+          profile-name: sst_user
+      - run: "aws lambda update-function-code --function-name SST_endpoint --zip-file fileb://function.zip"
 workflows:
-  deploy_function:
+  test_and_deploy:
     jobs:
-      - deploy:
+      - build-and-test:
           filters:
             branches:
               only: main
+      - build-and-deploy:
+          filters:
+            branches:
+              only: main
+          requires:
+            - build-and-test

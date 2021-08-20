@@ -1,52 +1,43 @@
-const https = require("https");
-const _ = require("lodash");
+const Analytics = require("analytics-node");
+const argumentsConverter = require("./utils/arguments_converter");
 
 exports.handler = (event, context, callback) => {
-	// TODO: add arg validation
-	const isValid = true;
+	const analytics = new Analytics("J8353XCgGhMJlajCN3pbXru56SVZ12Qa"); // it's a Write Key which you can find in Segment under your source settings
 
-	let body = "";
-	let jsonObject = JSON.stringify(event);
-
-	// the request options
-	const options = {
-		host: "api.segment.io",
-		path: "/v1/track",
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-			Authorization: "Basic SjgzNTNYQ2dHaE1KbGFqQ04zcGJYcnU1NlNWWjEyUWE6"
-		}
-	};
-
-	if (isValid) {
-		const req = https.request(options, (res) => {
-			console.log("statusCode: ", res.statusCode);
-			res.on("data", (event) => {
-				body += event;
-			});
-			res.on("end", () => {
-				if (res.headers["content-type"] === "application/json") {
-					body = JSON.parse(body);
-				}
-				callback(null, body);
-			});
-			res.on("error", callback);
-		});
-		req.write(jsonObject);
-		req.end();
-	} else {
-		throw new Error("event not valid");
-	}
-
-	const response = {
-		statusCode: 200,
+	let currentEvent;
+	let response = {
 		headers: {
 			"Access-Control-Allow-Headers": "Content-Type",
 			"Access-Control-Allow-Origin": "*",
 			"Access-Control-Allow-Methods": "POST"
 		},
-		body: "SST works"
+		statusCode: null,
+		body: ""
 	};
+
+	function isJSON(str) {
+		try {
+			return JSON.parse(str) && !!str;
+		} catch (e) {
+			return false;
+		}
+	}
+
+	isJSON(event.body)
+		? (currentEvent = JSON.parse(event.body))
+		: (currentEvent = event.body);
+
+	// convert snake_case to camelCase
+	currentEvent.arguments = argumentsConverter(currentEvent.arguments);
+
+	const supportedEventType = ["identify", "page", "track"];
+	if (supportedEventType.includes(currentEvent.type)) {
+		analytics[currentEvent.type](currentEvent.arguments);
+		response.statusCode = 200;
+		response.body = "event processed successfully";
+	} else {
+		response.statusCode = 422;
+		response.body = "unsupported event type";
+	}
 	callback(null, response);
 };
