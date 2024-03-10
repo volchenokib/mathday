@@ -2,9 +2,7 @@ let sharedArray;
 
 onmessage = function(e) {
     if (e.data.sharedBuffer) {
-        console.log('Worker got shared buffer', e.data.sharedBuffer);
         sharedArray = new Int32Array(e.data.sharedBuffer);
-        console.log('Worker got shared array', sharedArray);
     } else if (e.data === 'visit') {
         // Используем Atomics для атомарного увеличения счётчика
         const currentCount = Atomics.add(sharedArray, 0, 1);
