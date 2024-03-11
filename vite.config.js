@@ -3,6 +3,7 @@ import path from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  base: './', // Устанавливаем базовый путь как относительный
   server: {
     headers: {
         'Access-Control-Allow-Origin': '*',
