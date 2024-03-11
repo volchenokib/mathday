@@ -28,6 +28,8 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+let nodData = null
+
 const URL =`https://numod-20528-default-rtdb.europe-west1.firebasedatabase.app/nums/${day}.json`;
 
 // Get data from the server
@@ -46,9 +48,38 @@ fetch(URL,{
   .then(data => {
     const container = document.getElementById('data-container');
     container.textContent = data.value;
+    nodData = data;
   })
   .catch(error => {
     console.error('There has been a problem with your fetch operation:', error);
     document.getElementById('data-container').textContent = 'Error loading the data';
   });
 
+// form
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var textInput = document.getElementById('textInput').value.trim();
+    var radioValue = document.querySelector('input[name="options"]:checked');
+
+    // validate
+    if (!textInput || !radioValue) {
+      alert('Заполните все поля.');
+      return
+    }
+
+    console.log('nodData:', nodData);
+
+    // check user's answer
+    if (textInput.trim().toLowerCase() === nodData.ru_words && radioValue.value === checkOdd(nodData.value)) {
+      alert('Верно!');
+    } else {
+      alert('Неверно!');
+    }
+});
+
+function checkOdd(num) { 
+  if (num % 2 == 0) {
+    return 'even';
+  }
+  return 'odd';
+}
