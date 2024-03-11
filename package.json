@@ -1,7 +1,7 @@
 {
-	"name": "server_side_tracking",
+	"name": "number_of_the_day",
 	"version": "0.1.0",
-	"private": true,
+	"private": false,
 	"scripts": {
 		"dev": "vite --host localhost",
 		"build": "vite build",
