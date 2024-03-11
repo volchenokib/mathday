@@ -1,0 +1,20 @@
+.app-main {
+    background: #7b7b7b4d;
+    padding: 1rem 1rem 100px 1rem;
+}
+.app-nod-container {
+    padding: 2rem;
+}
+.nod {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.site-heading {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.form-container {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
