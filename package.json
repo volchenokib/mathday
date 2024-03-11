@@ -4,6 +4,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite --host localhost",
+		"build": "vite build",
+		"serve": "vite preview",
 		"test": "jest"
 	},
 	"dependencies": {
