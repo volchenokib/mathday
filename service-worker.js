@@ -1,5 +1,4 @@
 'use strict';
-
 const today = new Date();
 const start = new Date(today.getFullYear(), 0, 0);
 const diff = today - start;
@@ -7,17 +6,17 @@ const oneDay = 1000 * 60 * 60 * 24;
 const day = Math.floor(diff / oneDay);
 
 const CACHE_NAME = 'v1-cache';
-// const urlsToCache = [
-//   '/',
-//   '/main.js',
-//   '/utils/currentDay.js',
-//   '/styles.css',
-//   '/worker.js',
-//   '/index.html',
-//   '/manifest.json',
-//   '/icons/icon-192x192.png',
-//   '/icons/icon-512x512.png',
-// ];
+const urlsToCache = [
+  // '/',
+  // '/main.js',
+  // '/utils/currentDay.js',
+  // '/styles.css',
+  // '/worker.js',
+  // '/index.html',
+  // '/manifest.json',
+  // '/icons/icon-192x192.png',
+  // '/icons/icon-512x512.png',
+];
 
 // Installing Service Worker and caching resources
 // self.addEventListener('install', event => {
@@ -33,7 +32,8 @@ const CACHE_NAME = 'v1-cache';
 // Request hijacking to implement a 'Cache First' strategy with dynamic caching of API data
 self.addEventListener('fetch', event => {
   // Check if the request matches the URL of our API
-  if (event.request.url.endsWith(`/${day}`)) {
+  if (event.request.url.endsWith(`${day}.json`)) {
+    
     event.respondWith(
       caches.match(event.request)
         .then(cachedResponse => {
@@ -50,7 +50,7 @@ self.addEventListener('fetch', event => {
             }
 
             // Cloning a response, since a response can only be read once
-            var responseToCache = response.clone();
+            const responseToCache = response.clone();
 
             // Open the cache and cache new data from the API
             caches.open(CACHE_NAME).then(cache => {
