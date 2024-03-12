@@ -1,9 +1,10 @@
-'use strict';
 const today = new Date();
 const start = new Date(today.getFullYear(), 0, 0);
 const diff = today - start;
 const oneDay = 1000 * 60 * 60 * 24;
 const day = Math.floor(diff / oneDay);
+
+const self = this;
 
 const CACHE_NAME = 'v1-cache';
 const urlsToCache = [
@@ -33,7 +34,6 @@ const urlsToCache = [
 self.addEventListener('fetch', event => {
   // Check if the request matches the URL of our API
   if (event.request.url.endsWith(`${day}.json`)) {
-    
     event.respondWith(
       caches.match(event.request)
         .then(cachedResponse => {
