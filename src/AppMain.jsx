@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from './stories/Button';
+import { Button } from './stories/Button/Button.jsx';
 import { day, checkOdd } from "../utils/currentDay.js";
 
 function AppMain() {
