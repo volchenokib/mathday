@@ -9,7 +9,7 @@ function AppMain() {
   const [textInput, setTextInput] = useState('');
   const [radioValue, setRadioValue] = useState('');
 
-  const URL = `https://numod-20528-default-rtdb.europe-west1.firebasedatabase.app/nums/${day}.json`;
+  const URL = `https://numod-20528-default-rtdb.europe-west1.firebasedatabase.app/${day}.json`;
 
   useEffect(() => {
     fetch(URL, {
@@ -21,7 +21,7 @@ function AppMain() {
     .then(response => response.json())
     .then(data => setNodData(data))
     .catch(error => console.error("Error fetching data: ", error));
-  }, [URL]);
+  }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
