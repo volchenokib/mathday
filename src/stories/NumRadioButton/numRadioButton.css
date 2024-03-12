@@ -1,0 +1,42 @@
+@import url("../../styles/variables.css");
+
+.num-radio-button-container {
+  align-items: flex-start;
+  color: var(--slate-900);
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.5em;
+  justify-content: center;
+  cursor: pointer;
+}
+.num-radio-button-input {
+    transform: translateX(-100%);
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    margin: 0px;
+    width: 16px;
+    height: 16px;
+}
+.num-radio-button {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 1px solid var(--slate-400);
+    background-color: white;
+    cursor: pointer;
+    line-height: 24px;
+    text-align: center;
+}
+.num-radio-button-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 14px;
+    width: 14px;
+
+}
+.num-radio-button-label {
+    cursor: pointer;
+    font-size: 14px;
+}

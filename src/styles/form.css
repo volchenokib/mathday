@@ -10,11 +10,8 @@
     margin-bottom: 10px;
   }
 
-  .radio-inline {
-    display: inline-block;
-    margin-right: 10px;
-  }
+.radio-group--inline {
+  display: flex;
+  gap: 1rem;
+}
 
-  .form-submit {
-    float: right;
-  }

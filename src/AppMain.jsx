@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './stories/Button/Button.jsx';
 import { NumTextInput } from './stories/NumTextInput/NumTextInput.jsx';
+import { NumRadioButton } from './stories/NumRadioButton/NumRadioButton.jsx';
 import { day, checkOdd } from "../utils/currentDay.js";
 
 function AppMain() {
@@ -56,21 +57,14 @@ function AppMain() {
               label={"Cловами"}
               placeholder={"Напиши число словами"}
               value={textInput}
-              required
               onChange={(e) => setTextInput(e.target.value)}
               />
           </div>
           
           <div className="form-group">
-            <div className="radio-inline">
-              <label>
-                <input type="radio" name="options" value="even" required checked={radioValue === 'even'} onChange={(e) => setRadioValue(e.target.value)} /> Четное
-              </label>
-            </div>
-            <div className="radio-inline">
-              <label>
-                <input type="radio" name="options" value="odd" required checked={radioValue === 'odd'} onChange={(e) => setRadioValue(e.target.value)} /> Нечетное
-              </label>
+            <div className="radio-group--inline">
+              <NumRadioButton type="radio" name="options" label={"Четное"} value="even" checked={radioValue === 'even'} onChange={(value) => setRadioValue(value)} />
+              <NumRadioButton type="radio" name="options" label={"Нечетное"} value="odd" checked={radioValue === 'odd'} onChange={(value) => setRadioValue(value)} />
             </div>
           </div>
           
