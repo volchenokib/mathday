@@ -4,9 +4,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>
 )
 
 // const sharedBuffer = new SharedArrayBuffer(4); // Размер достаточный для одного Int32
