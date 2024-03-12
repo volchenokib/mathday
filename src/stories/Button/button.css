@@ -1,6 +1,7 @@
+@import url("../../styles/variables.css");
+
 .storybook-button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: medium;
+  font-weight: 400;
   border: 0;
   border-radius: 0.5em;
   cursor: pointer;
@@ -9,7 +10,7 @@
 }
 .storybook-button--primary {
   color: white;
-  background-color: #0F172A;
+  background-color: var(--slate-900);
 }
 .storybook-button--secondary {
   color: #333;

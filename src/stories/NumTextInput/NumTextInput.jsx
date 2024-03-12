@@ -14,7 +14,7 @@ export const NumTextInput = ({ type, name, label, placeholder, required, value, 
         name={name}
         placeholder={placeholder}
         required= {required}
-        autocomplete="off"
+        autoComplete="off"
         value={value}
         className={['num-text-input'].join(' ')}
         {...props}

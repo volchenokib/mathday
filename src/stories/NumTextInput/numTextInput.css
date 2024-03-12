@@ -1,43 +1,31 @@
-.num-text-input-container {
-    display: flex;
-    gap: 16px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    input::placeholder {
-        color: rgba(9, 9, 11, 0.5);
-        font-size: 14px;
-    }
-}
+@import url("../../styles/variables.css");
 
-.num-text-input {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #e4e4e7;
-    border-radius: 6px;
-    background-color: white;
+.num-text-input-container {
+    align-items: flex-start;
+    color: var(--slate-900);
+    display: flex;
+    flex-direction: column;
     font-size: 14px;
-    font-weight: 400;
-    color: #09090b;
-    padding: 4px 12px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    outline: none;
-    height: 26px;
+    gap: 0.5em;
+    justify-content: center;
 }
 .num-text-input-label {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
+    font-weight: 500;
+}
+.num-text-input {
+    border-radius: 6px;
+    border: 1px solid var(--slate-400);
+    color: var(--slate-900);
     font-size: 14px;
     font-weight: 400;
-    color: #000;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.3s ease;
+    height: 26px;
+    margin: 0;
     outline: none;
+    padding: 0;
+    padding: 4px 12px;
+    text-decoration: none;
+    width: 100%;
+    input::placeholder {
+        color: var(--slate-500);
+    }
 }
