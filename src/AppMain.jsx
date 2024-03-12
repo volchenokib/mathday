@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './stories/Button/Button.jsx';
+import { NumTextInput } from './stories/NumTextInput/NumTextInput.jsx';
 import { day, checkOdd } from "../utils/currentDay.js";
 
 function AppMain() {
@@ -48,8 +49,16 @@ function AppMain() {
       <div className="form-container">
         <form id="myForm" className="quiz-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="textInput">Словами</label>
-            <input type="text" id="textInput" name="textInput" required value={textInput} onChange={(e) => setTextInput(e.target.value)} />
+            <NumTextInput
+              id="textInput"
+              type={"text"}
+              name={"wordInput"}
+              label={"Cловами"}
+              placeholder={"Напиши число словами"}
+              value={textInput}
+              required
+              onChange={(e) => setTextInput(e.target.value)}
+              />
           </div>
           
           <div className="form-group">
