@@ -22,3 +22,22 @@ export const NumTextInput = ({ type, name, label, placeholder, required, value, 
     </div>
   );
 };
+
+NumTextInput.propTypes = {
+  type: PropTypes.string,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  value: PropTypes.string,
+  label: PropTypes.string,
+};
+
+NumTextInput.defaultProps = {
+  type: 'text',
+  name: 'numTextInput',
+  label: 'NumTextInput',
+  placeholder: 'NumTextInput',
+  required: false,
+  value: '',
+  onClick: undefined,
+};
