@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from './stories/Button';
 import { day, checkOdd } from "../utils/currentDay.js";
 
 function AppMain() {
@@ -65,7 +66,7 @@ function AppMain() {
           </div>
           
           <div className="form-group">
-            <button type="submit" className="form-submit">Проверить</button>
+            <Button type="submit" label={"Проверить"} primary={true}/>
           </div>
         </form>
       </div>
