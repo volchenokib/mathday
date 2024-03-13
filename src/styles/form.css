@@ -1,3 +1,5 @@
+@import url("./variables.css");
+
 /* form */
 .quiz-form {
     display: flex;
@@ -7,6 +9,9 @@
     width: 100%;
 }
 .form-group {
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
     margin-bottom: 10px;
   }
 
@@ -14,4 +19,8 @@
   display: flex;
   gap: 1rem;
 }
-
+.label-text {
+  color: var(--slate-900);
+  font-size: 14px;
+  font-weight: 500;
+}

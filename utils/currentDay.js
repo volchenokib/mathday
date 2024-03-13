@@ -15,3 +15,8 @@ export function checkOdd(num) {
   }
   return 'odd';
 }
+
+export function checkCorrespondence(userAnswer, options) {
+  const rightAnswer = options.find((item) => item.isRight);
+  return userAnswer === rightAnswer.value;
+}

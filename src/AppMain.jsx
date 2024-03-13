@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './stories/Button/Button.jsx';
 import { NumTextInput } from './stories/NumTextInput/NumTextInput.jsx';
 import { NumRadioButton } from './stories/NumRadioButton/NumRadioButton.jsx';
-import { day, checkOdd } from "../utils/currentDay.js";
+import { day, checkOdd, checkCorrespondence } from "../utils/currentDay.js";
 
 function AppMain() {
   const [nodData, setNodData] = useState(null);
   const [textInput, setTextInput] = useState('');
   const [radioValue, setRadioValue] = useState('');
+  // 3-th question
+  const [correspondenceUserAnswer, setCorrespondenceUserAnswer] = useState('');
 
   const URL = `https://numod-20528-default-rtdb.europe-west1.firebasedatabase.app/${day}.json`;
 
@@ -32,8 +34,13 @@ function AppMain() {
       return;
     }
 
+    const isWordsQuestionValid = textInput.toLowerCase() === nodData.ru_words;
+    const isEvenQuestionValid = radioValue === checkOdd(nodData.value);
+    const isCorrespondenceValid = checkCorrespondence(correspondenceUserAnswer, nodData.correspondence);
+
+
     // Проверка ответа пользователя
-    if (textInput.toLowerCase() === nodData.ru_words && radioValue === checkOdd(nodData.value)) {
+    if (isWordsQuestionValid && isEvenQuestionValid && isCorrespondenceValid) {
       alert('Верно!');
     } else {
       alert('Неверно!');
@@ -49,6 +56,7 @@ function AppMain() {
   
       <div className="form-container">
         <form id="myForm" className="quiz-form" onSubmit={handleSubmit}>
+          {/* 1-rd question */}
           <div className="form-group">
             <NumTextInput
               id="textInput"
@@ -61,13 +69,46 @@ function AppMain() {
               />
           </div>
           
+          {/* 2-rd question */}
           <div className="form-group">
             <div className="radio-group--inline">
-              <NumRadioButton type="radio" name="options" label={"Четное"} value="even" checked={radioValue === 'even'} onChange={(value) => setRadioValue(value)} />
-              <NumRadioButton type="radio" name="options" label={"Нечетное"} value="odd" checked={radioValue === 'odd'} onChange={(value) => setRadioValue(value)} />
+              <NumRadioButton
+                name="even-option"
+                label={"Четное"}
+                value="even"
+                checked={radioValue === 'even'}
+                onChange={(value) => setRadioValue(value)}
+              />
+              <NumRadioButton
+                name="odd-option"
+                label={"Нечетное"}
+                value="odd"
+                checked={radioValue === 'odd'}
+                onChange={(value) => setRadioValue(value)}
+              />
             </div>
           </div>
-          
+
+          {/* 3-rd question */}
+          {
+            nodData?.correspondence && (
+              <div className='form-group'>
+                <div className='label-text'>К какому из следующих описаний число подходит лучше всего?</div>
+                {nodData.correspondence.map(({value, description}) => {
+                  return (
+                    <NumRadioButton
+                      key={value}
+                      name={`value-option-${value}`}
+                      label={description}
+                      value={value}
+                      checked={correspondenceUserAnswer === value}
+                      onChange={(value) => setCorrespondenceUserAnswer(value)}
+                    />
+                  );
+                })}
+              </div>
+            )
+          }
           <div className="form-group">
             <Button type="submit" label={"Проверить"} primary={true}/>
           </div>
