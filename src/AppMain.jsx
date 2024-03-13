@@ -41,7 +41,7 @@ function AppMain() {
       return;
     }
 
-    const isWordsQuestionValid = textInput.toLowerCase() === nodData.ru_words;
+    const isWordsQuestionValid = textInput.toLowerCase().trim() === nodData.ru_words;
     const isEvenQuestionValid = radioValue === checkOdd(nodData.value);
     const isCorrespondenceValid = checkCorrespondence(correspondenceUserAnswer, nodData.correspondence);
 
@@ -64,7 +64,7 @@ function AppMain() {
       {
         isMobile && (
           <NumCard
-          title={nodData?.value}
+          title={nodData?.value.toString()}
           subtitle={'число дня'}
           isHeaderButton={true}
           headerButtonHandler={() => setIsCardBackSide(!isCardBackSide)}
@@ -91,6 +91,7 @@ function AppMain() {
               
               {/* 2-rd question */}
               <div className="form-group">
+              <div className='label-text'>Какое это число?</div>
                 <div className="radio-group--inline">
                   <NumRadioButton
                     name="even-option"
@@ -142,18 +143,12 @@ function AppMain() {
       {
         !isMobile && (
           <>
-          <NumCard
+           <NumCard
             className={'num-card-custom'}
-            title={nodData?.value}
+            title={nodData?.value.toString()}
             subtitle={'число дня'}
           >
-            {
-              nodData?.info_ru?.map((txt, idx)=> {
-                return <p key={`p-${idx}`}>{txt}</p>
-              })
-            }
-          </NumCard>
-          <div className="form-container">
+              <div className="form-container">
           <form id="myForm" className="quiz-form" onSubmit={handleSubmit}>
             {/* 1-rd question */}
             <div className="form-group">
@@ -170,6 +165,7 @@ function AppMain() {
             
             {/* 2-rd question */}
             <div className="form-group">
+            <div className='label-text'>Какое это число?</div>
               <div className="radio-group--inline">
                 <NumRadioButton
                   name="even-option"
@@ -213,6 +209,15 @@ function AppMain() {
             </div>
           </form>
         </div>
+          </NumCard>
+
+           <div className='info-container'>
+            {
+              nodData?.info_ru?.map((txt, idx)=> {
+                return <p key={`p-${idx}`}>{txt}</p>
+              })
+            }
+            </div>
         </>
         )
       }

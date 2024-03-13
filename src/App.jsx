@@ -5,14 +5,11 @@ import AppFooter from './AppFooter';
 
 function App() {
   return (
-    <>
-      <div className="app-wrapper">
-        <AppHeader />
-        <AppMain />
-      </div>
+    <div className="app-wrapper">
+      <AppHeader />
+      <AppMain />
       <AppFooter />
-    </>
-   
+    </div>
   )
 }
 

@@ -4,9 +4,5 @@
     color: #fff;
     display: flex;
     height: 96px;
-    margin: -96px auto 0;
-    max-width: 100%;
-    min-width: 100%;
     padding: 0px 2rem;
-    position: relative;
 }
