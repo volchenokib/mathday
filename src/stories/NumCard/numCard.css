@@ -10,4 +10,17 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    text-align: left;
+}
+.num-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.num-card-body p {
+    font-size: 16px;
+    color: #0f172a;
+    margin-bottom: 20px;
 }

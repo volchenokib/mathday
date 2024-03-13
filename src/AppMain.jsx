@@ -71,7 +71,9 @@ function AppMain() {
         >
           {
             isCardBackSide ? (
-                <p>lorem ipsum</p>
+                nodData?.info_ru?.map((txt, idx)=> {
+                  return <p key={`p-${idx}`}>{txt}</p>
+                })
             ) : (
               <form id="myForm" className="quiz-form" onSubmit={handleSubmit}>
               {/* 1-rd question */}
@@ -145,7 +147,11 @@ function AppMain() {
             title={nodData?.value}
             subtitle={'число дня'}
           >
-            <p>lorem ipsum</p>
+            {
+              nodData?.info_ru?.map((txt, idx)=> {
+                return <p key={`p-${idx}`}>{txt}</p>
+              })
+            }
           </NumCard>
           <div className="form-container">
           <form id="myForm" className="quiz-form" onSubmit={handleSubmit}>
