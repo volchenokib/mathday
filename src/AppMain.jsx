@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import useMobileCheck from './hooks/useMobileCheck.js';
-import { Button } from './stories/Button/Button.jsx';
-import { NumTextInput } from './stories/NumTextInput/NumTextInput.jsx';
-import { NumRadioButton } from './stories/NumRadioButton/NumRadioButton.jsx';
 import { NumCard } from './stories/NumCard/NumCard.jsx';
 import { day, checkOdd, checkCorrespondence } from "../utils/index.js";
+import { NumForm } from './stories/NumForm/NumForm.jsx';
 
 function AppMain() {
   const [nodData, setNodData] = useState(null);
 
   const isMobile = useMobileCheck();
   const [isCardBackSide, setIsCardBackSide] = useState(false);
-
-  // 1-st question state
-  const [textInput, setTextInput] = useState('');
-  // 2-nd question state
-  const [radioValue, setRadioValue] = useState('');
-  // 3-th question state
-  const [correspondenceUserAnswer, setCorrespondenceUserAnswer] = useState('');
 
   const dbUrl = import.meta.env.VITE_DB_URL;
   const URL = `${dbUrl}/${day}.json`;
@@ -34,8 +25,8 @@ function AppMain() {
     .catch(error => console.error("Error fetching data: ", error));
   }, []);
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleSubmit({textInput, radioValue, correspondenceUserAnswer}) {
+    // event.preventDefault();
 
     // Валидация
     if (!textInput || !radioValue) {
@@ -72,65 +63,12 @@ function AppMain() {
                   return <p key={`p-${idx}`}>{txt}</p>
                 })
             ) : (
-              <form id="myForm" className="quiz-form" onSubmit={handleSubmit}>
-              {/* 1-rd question */}
-              <div className="form-group">
-                <NumTextInput
-                  id="textInput"
-                  type={"text"}
-                  name={"wordInput"}
-                  label={"Cловами"}
-                  placeholder={"Напиши число словами"}
-                  value={textInput}
-                  onChange={(e) => setTextInput(e.target.value)}
-                  />
-              </div>
-              
-              {/* 2-rd question */}
-              <div className="form-group">
-              <div className='label-text'>Какое это число?</div>
-                <div className="radio-group--inline">
-                  <NumRadioButton
-                    name="even-option"
-                    label={"Четное"}
-                    value="even"
-                    checked={radioValue === 'even'}
-                    onChange={(value) => setRadioValue(value)}
-                  />
-                  <NumRadioButton
-                    name="odd-option"
-                    label={"Нечетное"}
-                    value="odd"
-                    checked={radioValue === 'odd'}
-                    onChange={(value) => setRadioValue(value)}
-                  />
-                </div>
-              </div>
-    
-              {/* 3-rd question */}
-              {
-                nodData?.correspondence && (
-                  <div className='form-group'>
-                    <div className='label-text'>К какому из следующих описаний число подходит лучше всего?</div>
-                    {nodData.correspondence.map(({value, description}) => {
-                      return (
-                        <NumRadioButton
-                          key={value}
-                          name={`value-option-${value}`}
-                          label={description}
-                          value={value}
-                          checked={correspondenceUserAnswer === value}
-                          onChange={(value) => setCorrespondenceUserAnswer(value)}
-                        />
-                      );
-                    })}
-                  </div>
-                )
-              }
-              <div className="form-group">
-                <Button type="submit" label={"Проверить"} primary={true}/>
-              </div>
-            </form>
+              <NumForm
+                id={'mobile-form'}
+                className={'quiz-form'}
+                nodData={nodData}
+                onFormSubmit={handleSubmit}
+              />
             )
           }
         </NumCard>
@@ -145,67 +83,14 @@ function AppMain() {
             title={nodData?.value.toString()}
             subtitle={'число дня'}
           >
-              <div className="form-container">
-          <form id="myForm" className="quiz-form" onSubmit={handleSubmit}>
-            {/* 1-rd question */}
-            <div className="form-group">
-              <NumTextInput
-                id="textInput"
-                type={"text"}
-                name={"wordInput"}
-                label={"Cловами"}
-                placeholder={"Напиши число словами"}
-                value={textInput}
-                onChange={(e) => setTextInput(e.target.value)}
-                />
-            </div>
-            
-            {/* 2-rd question */}
-            <div className="form-group">
-            <div className='label-text'>Какое это число?</div>
-              <div className="radio-group--inline">
-                <NumRadioButton
-                  name="even-option"
-                  label={"Четное"}
-                  value="even"
-                  checked={radioValue === 'even'}
-                  onChange={(value) => setRadioValue(value)}
-                />
-                <NumRadioButton
-                  name="odd-option"
-                  label={"Нечетное"}
-                  value="odd"
-                  checked={radioValue === 'odd'}
-                  onChange={(value) => setRadioValue(value)}
-                />
-              </div>
-            </div>
-  
-            {/* 3-rd question */}
-            {
-              nodData?.correspondence && (
-                <div className='form-group'>
-                  <div className='label-text'>К какому из следующих описаний число подходит лучше всего?</div>
-                  {nodData.correspondence.map(({value, description}) => {
-                    return (
-                      <NumRadioButton
-                        key={value}
-                        name={`value-option-${value}`}
-                        label={description}
-                        value={value}
-                        checked={correspondenceUserAnswer === value}
-                        onChange={(value) => setCorrespondenceUserAnswer(value)}
-                      />
-                    );
-                  })}
-                </div>
-              )
-            }
-            <div className="form-group">
-              <Button type="submit" label={"Проверить"} primary={true}/>
-            </div>
-          </form>
-        </div>
+          <div className="form-container">
+            <NumForm
+              id={'desktop-form'}
+              className={'quiz-form'}
+              nodData={nodData}
+              onFormSubmit={handleSubmit}
+            />
+          </div>
           </NumCard>
 
            <div className='info-container'>
