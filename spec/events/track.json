@@ -1,30 +1,30 @@
 {
-	"type": "track",
-	"arguments": {
-		"event": "Event Name",
-		"properties": {
-			"page": {
-				"path": "/",
-				"referrer": "",
-				"title": "Page Title",
-				"search": "",
-				"url": "https://google.com/"
-			},
-			"plan": "pro_annual",
-			"accountType": "Facebook",
-			"bar_baz": 1
-		},
-		"context": {
-			"campaign": {},
-			"referrer": { "url": "direct" },
-			"page": {
-				"path": "/",
-				"referrer": "",
-				"title": "Page Title",
-				"search": "",
-				"url": "https://google.com/"
-			}
-		},
-		"anonymous_id": "8249da9a-ac6c-493d-aa03-357be376f48d"
-	}
+  "type": "track",
+  "arguments": {
+    "event": "Event Name",
+    "properties": {
+      "page": {
+        "path": "/",
+        "referrer": "",
+        "title": "Page Title",
+        "search": "",
+        "url": "https://google.com/"
+      },
+      "plan": "pro_annual",
+      "accountType": "Facebook",
+      "bar_baz": 1
+    },
+    "context": {
+      "campaign": {},
+      "referrer": { "url": "direct" },
+      "page": {
+        "path": "/",
+        "referrer": "",
+        "title": "Page Title",
+        "search": "",
+        "url": "https://google.com/"
+      }
+    },
+    "anonymous_id": "8249da9a-ac6c-493d-aa03-357be376f48d"
+  }
 }

@@ -1,21 +1,21 @@
 {
-	"type": "identify",
-	"arguments": {
-		"traits": {
-			"plan": "pro_annual",
-			"bar_baz": 1
-		},
-		"context": {
-			"campaign": {},
-			"referrer": { "url": "direct" },
-			"page": {
-				"path": "/",
-				"referrer": "",
-				"title": "Page Title",
-				"search": "",
-				"url": "https://google.com/"
-			}
-		},
-		"user_id": "97980cfea0067"
-	}
+  "type": "identify",
+  "arguments": {
+    "traits": {
+      "plan": "pro_annual",
+      "bar_baz": 1
+    },
+    "context": {
+      "campaign": {},
+      "referrer": { "url": "direct" },
+      "page": {
+        "path": "/",
+        "referrer": "",
+        "title": "Page Title",
+        "search": "",
+        "url": "https://google.com/"
+      }
+    },
+    "user_id": "97980cfea0067"
+  }
 }

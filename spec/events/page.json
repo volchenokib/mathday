@@ -1,27 +1,27 @@
 {
-	"type": "page",
-	"arguments": {
-		"name": "Main",
-		"properties": {
-			"page": {
-				"path": "/",
-				"referrer": "",
-				"title": "Page Title",
-				"search": "",
-				"url": "https://google.com/"
-			}
-		},
-		"context": {
-			"campaign": {},
-			"referrer": { "url": "direct" },
-			"page": {
-				"path": "/",
-				"referrer": "",
-				"title": "Page Title",
-				"search": "",
-				"url": "https://google.com/"
-			}
-		},
-		"anonymous_id": "93275cf1-5108-4909-a9b4-7e7dafadb4dd"
-	}
+  "type": "page",
+  "arguments": {
+    "name": "Main",
+    "properties": {
+      "page": {
+        "path": "/",
+        "referrer": "",
+        "title": "Page Title",
+        "search": "",
+        "url": "https://google.com/"
+      }
+    },
+    "context": {
+      "campaign": {},
+      "referrer": { "url": "direct" },
+      "page": {
+        "path": "/",
+        "referrer": "",
+        "title": "Page Title",
+        "search": "",
+        "url": "https://google.com/"
+      }
+    },
+    "anonymous_id": "93275cf1-5108-4909-a9b4-7e7dafadb4dd"
+  }
 }
