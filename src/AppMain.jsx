@@ -4,7 +4,7 @@ import { Button } from './stories/Button/Button.jsx';
 import { NumTextInput } from './stories/NumTextInput/NumTextInput.jsx';
 import { NumRadioButton } from './stories/NumRadioButton/NumRadioButton.jsx';
 import { NumCard } from './stories/NumCard/NumCard.jsx';
-import { day, checkOdd, checkCorrespondence } from "../utils/currentDay.js";
+import { day, checkOdd, checkCorrespondence } from "../utils/index.js";
 
 function AppMain() {
   const [nodData, setNodData] = useState(null);
