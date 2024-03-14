@@ -24,6 +24,7 @@
 - [ ] Unit tests - Q1 2024
 - [ ] Offline mode - Q1 2024
 - [ ] Transparent sticky header - Q1 2024
+- [ ] SEO optimisation & analytics - Q1 2024
 - [ ] Success messages for the NOD form - Q1 2024
 - [ ] Error messages for the NOD form - Q1 2024
 - [x] Launch of the first version of the site - 03.14.2024
