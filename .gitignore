@@ -5,3 +5,5 @@ db.json
 dist
 *storybook.log
 *.zip
+*.env
+*.env.*

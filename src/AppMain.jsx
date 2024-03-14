@@ -19,7 +19,8 @@ function AppMain() {
   // 3-th question state
   const [correspondenceUserAnswer, setCorrespondenceUserAnswer] = useState('');
 
-  const URL = `https://numod-20528-default-rtdb.europe-west1.firebasedatabase.app/${day}.json`;
+  const dbUrl = import.meta.env.VITE_DB_URL;
+  const URL = `${dbUrl}/${day}.json`;
 
   useEffect(() => {
     fetch(URL, {
@@ -42,7 +43,7 @@ function AppMain() {
       return;
     }
 
-    const isWordsQuestionValid = textInput.toLowerCase().trim() === nodData.ru_words;
+    const isWordsQuestionValid = nodData.wordsRu.includes(textInput.toLowerCase().trim());
     const isEvenQuestionValid = radioValue === checkOdd(nodData.value);
     const isCorrespondenceValid = checkCorrespondence(correspondenceUserAnswer, nodData.correspondence);
 
@@ -67,7 +68,7 @@ function AppMain() {
         >
           {
             isCardBackSide ? (
-                nodData?.info_ru?.map((txt, idx)=> {
+                nodData?.infoRu?.map((txt, idx)=> {
                   return <p key={`p-${idx}`}>{txt}</p>
                 })
             ) : (
@@ -209,7 +210,7 @@ function AppMain() {
 
            <div className='info-container'>
             {
-              nodData?.info_ru?.map((txt, idx)=> {
+              nodData?.infoRu?.map((txt, idx)=> {
                 return <p key={`p-${idx}`}>{txt}</p>
               })
             }
