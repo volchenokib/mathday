@@ -21,6 +21,6 @@
 }
 .num-card-body p {
     font-size: 16px;
-    color: #0f172a;
+    color: var(--slate-900);
     margin-bottom: 20px;
 }

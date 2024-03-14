@@ -1,5 +1,6 @@
+@import url("./variables.css");
 .app-main {
-    background: #7b7b7b4d;
+    background: var(--slate-200);
     display: flex;
     gap: 3rem;
     width: 100%;
@@ -28,12 +29,6 @@
 .num-card-custom {
     max-width: 60%;
 }
-.info-container {
-    padding: 0 0 1.5rem 0;
-}
 .info-container p {
-   text-align: left;
-   font-size: 16px;
-   color: #0f172a;
-   margin-bottom: 20px;
+   margin-bottom: 1.25rem;
 }

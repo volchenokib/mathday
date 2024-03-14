@@ -4,7 +4,7 @@ import styles from './styles/AppHeader.module.css';
 function AppHeader() {
   return (
     <header className={styles.appHeader}>
-        <span>Math Day</span>
+        <span className={styles.siteName}>Math Day</span>
     </header>
   )
 }

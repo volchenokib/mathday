@@ -1,7 +1,12 @@
 /* https://www.figma.com/file/2iGUTsVKIgji4thnf5nnyV/%40shadcn%2Fui---Design-System-(Community)-(Copy)?type=design&node-id=21%3A1151&mode=design&t=RSnfv6dGy3BihNL4-1 */
 
 :root {
-    --slate-400: #CBD5E1;
+    --md-white: #fafafa;
+    --md-border: #e4e4e766;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
     --slate-500: #64748B;
     --slate-600: #475569;
     --slate-900: #0f172a;

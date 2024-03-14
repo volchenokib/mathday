@@ -1,8 +1,15 @@
+@import url("./variables.css");
+
 .appHeader {
     height: 56px;
-    background: #ffffff99;
+    background: var(--white);
     display: flex;
     align-items: center;
     padding: 0px 2rem 0px 2rem;
-    border-bottom: 1px solid #e4e4e766;
+    border-bottom: 1px solid var(--md-border);
+}
+.siteName {
+    color: var(--slate-900);
+    font-size: 1.75em;
+    letter-spacing: 0.05em;
 }
