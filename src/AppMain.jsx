@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useMobileCheck from './hooks/useMobileCheck.js';
 import { Button } from './stories/Button/Button.jsx';
 import { NumTextInput } from './stories/NumTextInput/NumTextInput.jsx';
 import { NumRadioButton } from './stories/NumRadioButton/NumRadioButton.jsx';
@@ -8,7 +9,7 @@ import { day, checkOdd, checkCorrespondence } from "../utils/currentDay.js";
 function AppMain() {
   const [nodData, setNodData] = useState(null);
 
-  const isMobile = window.innerWidth < 768;
+  const isMobile = useMobileCheck();
   const [isCardBackSide, setIsCardBackSide] = useState(false);
 
   // 1-st question state
@@ -56,11 +57,6 @@ function AppMain() {
 
   return (
     <main className="app-main" id="app">
-      {/* <div className="app-nod-container">
-        <h2 id="data-container" className="nod">{nodData ? nodData.value : ''}</h2>
-        <h1 className="site-heading">Число дня</h1>
-      </div> */}
-
       {
         isMobile && (
           <NumCard
