@@ -1,39 +1,41 @@
-## Working with Web Workers: Enabling HTTPS
+# mathday.online
 
-To work with Web Workers, your site needs to be accessible over the HTTPS protocol. Here’s how to set it up:
+## About the Project
+# О проекте
 
-### Prerequisites
+Этот проект о математике, он посвящен одной из самых захватывающих и красивых областей науки - теории чисел. Проект был создан с целью делиться знаниями и вдохновлять любителей математики, студентов, преподавателей, и всех, кто интересуется математикой и ее загадками.
 
-- You must have `mkcert` installed on your machine.
+Теория чисел - это ветвь математики, посвященная свойствам и отношениям чисел, особенно целых. Она обладает глубокой красотой и комплексностью, включая изучение простых чисел, совершенных чисел, фигурных чисел и многих других категорий, которые поражают воображение своими уникальными свойствами и тайнами.
 
-### Generating Certificates for localhost
+На нашем сайте вы найдете информацию о различных интересных числах, их истории, математических свойствах и роли в теории чисел. Мы стремимся сделать математику доступной и увлекательной для всех, кто хочет узнать больше об этой удивительной науке.
 
-1. **Install mkcert:**
+Приглашаем вас исследовать мир математики вместе с нами, открывая новые знания и удивительные факты о числах, которые окружают нас в повседневной жизни и в основе всего существующего во Вселенной.
 
-   If you haven't installed mkcert yet, follow the installation instructions on the [mkcert GitHub page](https://github.com/FiloSottile/mkcert).
+## Roadmap
 
-2. **Generate Certificates:**
+- [ ] Second form for questions about the NOD - Q3 2024
+- [ ] Tab component for 2-nd form of the NOD - Q3 2024
+- [ ] Font size management - Q2 2024
+- [ ] Dark and light themes - Q2 2024
+- [ ] Improve Storybook docs - Q1 2024
+- [ ] Component for donations - Q2 2024
+- [ ] 5-th question for the NOD form - Q2 2024
+- [ ] 4-h question for the NOD form - Q2 2024
+- [ ] Unit tests - Q1 2024
+- [ ] Offline mode - Q1 2024
+- [ ] Success messages for the NOD form - Q1 2024
+- [ ] Error messages for the NOD form - Q1 2024
+- [x] Launch of the first version of the site - 03.14.2024
 
-   To issue new certificates for localhost, use the `mkcert` command in the terminal while you are in the root folder of your project:
+---
 
-   ```shell
-   mkcert localhost
-   ```
+**NOD**: Number Of the Day
 
-   This command will generate two files: `localhost.pem` (the certificate) and `localhost-key.pem` (the private key). Keep these files in a secure location within your project directory.
 
-### Accessing Your Site
 
-- Once your development server is properly configured, you can access your site at the following URL:
+## Getting Started
 
-  ```
-  https://localhost:5173
-  ```
+Чтобы начать работать с проектом, необходимо иметь установленные Node.js (версии ^18.0.0 || >=20.0.0) и npm (Node Package Manager). Эти инструменты позволят запустить сайт локально на компьютере.
 
-### Note
+Локальная разработка сайта осуществляется через HTTPS протокол поэтому перед началом работы необходимо выпонить несколько шагов описанных в инструкции [Enabling HTTPS](https://gist.github.com/volchenokib/c6993cf1c79fef49745cf6e478dc6520)
 
-- Use Chrome browser
-
-- When accessing your site, your browser may warn you about the site's security certificate since it was self-signed by mkcert. You'll need to proceed with the option to continue to the site (the exact option varies by browser).
-
-Following these steps will enable you to work with Web Workers over HTTPS in a local development environment.
