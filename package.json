@@ -1,6 +1,6 @@
 {
   "name": "math_day",
-  "version": "0.1.1",
+  "version": "1.0.1",
   "private": false,
   "scripts": {
     "predev": "node -e \"const semver = require('semver'); if (!semver.satisfies(process.version, '^18.0.0 || >=20.0.0')) { console.error('Unsupported Node.js version'); process.exit(1); }\"",
