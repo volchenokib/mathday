@@ -25,6 +25,8 @@ function AppMain() {
       .catch((error) => console.error("Error fetching data: ", error))
   }, [])
 
+  const [isFirstError, setIsFirstError] = useState(false)
+
   function handleSubmit({ textInput, radioValue, correspondenceUserAnswer }) {
     // event.preventDefault();
 
@@ -47,6 +49,7 @@ function AppMain() {
     if (isWordsQuestionValid && isEvenQuestionValid && isCorrespondenceValid) {
       alert("Верно!")
     } else {
+      setIsFirstError(!isWordsQuestionValid)
       alert("Неверно!")
     }
   }
@@ -87,6 +90,7 @@ function AppMain() {
                 id={"desktop-form"}
                 className={"quiz-form"}
                 nodData={nodData}
+                isFirstError={isFirstError}
                 onFormSubmit={handleSubmit}
               />
             </div>

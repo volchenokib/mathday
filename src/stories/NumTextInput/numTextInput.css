@@ -29,3 +29,6 @@
     color: var(--slate-500);
   }
 }
+.error {
+  color: var(--md-destructive);
+}

@@ -4,7 +4,14 @@ import { Button } from "../Button/Button.jsx"
 import { NumTextInput } from "../NumTextInput/NumTextInput.jsx"
 import { NumRadioButton } from "../NumRadioButton/NumRadioButton.jsx"
 
-export const NumForm = ({ className, onFormSubmit, id, nodData, ...props }) => {
+export const NumForm = ({
+  className,
+  onFormSubmit,
+  id,
+  nodData,
+  isFirstError,
+  ...props
+}) => {
   // 1-st question state
   const [textInput, setTextInput] = useState("")
   // 2-nd question state
@@ -28,6 +35,7 @@ export const NumForm = ({ className, onFormSubmit, id, nodData, ...props }) => {
           label={"Cловами"}
           placeholder={"Напиши число словами"}
           value={textInput}
+          error={isFirstError}
           onChange={(e) => setTextInput(e.target.value)}
         />
       </div>

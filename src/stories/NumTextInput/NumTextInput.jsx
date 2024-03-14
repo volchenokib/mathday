@@ -12,11 +12,15 @@ export const NumTextInput = ({
   placeholder,
   required,
   value,
+  error,
   ...props
 }) => {
   return (
     <div className={["num-text-input-container"].join(" ")}>
-      <label className={["num-text-input-label"].join(" ")} htmlFor={name}>
+      <label
+        className={`num-text-input-label ${error ? "error" : ""}`}
+        htmlFor={name}
+      >
         {" "}
         {label}
       </label>
@@ -27,7 +31,7 @@ export const NumTextInput = ({
         required={required}
         autoComplete="off"
         value={value}
-        className={["num-text-input"].join(" ")}
+        className={`num-text-input`}
         {...props}
       />
     </div>
@@ -41,6 +45,7 @@ NumTextInput.propTypes = {
   required: PropTypes.bool,
   value: PropTypes.string,
   label: PropTypes.string,
+  error: PropTypes.bool,
 }
 
 NumTextInput.defaultProps = {
@@ -51,4 +56,5 @@ NumTextInput.defaultProps = {
   required: false,
   value: "",
   onClick: undefined,
+  error: false,
 }
