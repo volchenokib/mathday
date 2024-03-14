@@ -10,35 +10,34 @@
   cursor: pointer;
 }
 .num-radio-button-input {
-    transform: translateX(-100%);
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
-    margin: 0px;
-    width: 16px;
-    height: 16px;
+  transform: translateX(-100%);
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  margin: 0px;
+  width: 16px;
+  height: 16px;
 }
 .num-radio-button {
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    border: 1px solid var(--slate-400);
-    background-color: white;
-    cursor: pointer;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--slate-400);
+  background-color: white;
+  cursor: pointer;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .num-radio-button-icon-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 14px;
-    width: 14px;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14px;
+  width: 14px;
 }
 .num-radio-button-label {
-    cursor: pointer;
-    font-size: 14px;
+  cursor: pointer;
+  font-size: 14px;
 }

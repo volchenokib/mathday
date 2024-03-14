@@ -1,5 +1,5 @@
-import React from 'react';
-import './appFooter.css';
+import React from "react"
+import "./appFooter.css"
 
 function AppFooter() {
   return (
@@ -13,4 +13,4 @@ function AppFooter() {
   )
 }
 
-export default AppFooter;
+export default AppFooter

@@ -1,7 +1,7 @@
-import React from 'react';
-import AppHeader from './AppHeader';
-import AppMain from './AppMain';
-import AppFooter from './AppFooter/AppFooter';
+import React from "react"
+import AppHeader from "./AppHeader"
+import AppMain from "./AppMain"
+import AppFooter from "./AppFooter/AppFooter"
 
 function App() {
   return (
@@ -13,4 +13,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

@@ -1,10 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import React from "react"
+import ReactDOM from "react-dom/client"
+import App from "./App.jsx"
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <App />
-)
+ReactDOM.createRoot(document.getElementById("root")).render(<App />)
 
 // const sharedBuffer = new SharedArrayBuffer(4); // Размер достаточный для одного Int32
 // const sharedArray = new Int32Array(sharedBuffer);
@@ -22,7 +20,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // document.getElementById('visitButton').addEventListener('click', function() {
 //     worker.postMessage('visit');
 // });
-
 
 // Service Worker registration
 // if ('serviceWorker' in navigator) {

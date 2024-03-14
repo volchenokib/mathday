@@ -2,18 +2,18 @@
 
 /* form */
 .quiz-form {
-    display: flex;
-    flex-flow: column;
-    gap: 2rem;
-    max-width: 420px;
-    width: 100%;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+  max-width: 420px;
+  width: 100%;
 }
 .form-group {
-    display: flex;
-    flex-flow: column;
-    gap: 8px;
-    margin-bottom: 0.5rem;
-  }
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
 
 .radio-group--inline {
   display: flex;

@@ -32,6 +32,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "babel-jest": "^27.0.6",
     "jest": "^27.0.6",
+    "prettier": "3.2.5",
     "prop-types": "^15.8.1",
     "semver": "^7.6.0",
     "storybook": "^8.0.0",
