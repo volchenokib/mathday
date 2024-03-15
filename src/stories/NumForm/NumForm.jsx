@@ -16,9 +16,19 @@ export const NumForm = ({ className, id, nodData, ...props }) => {
 
   // 2-nd question state
   const [radioValue, setRadioValue] = useState("")
+  const [isSecondFieldError, setIsSecondFieldError] = useState(false)
+  const handleSecondFieldChange = (value) => {
+    setRadioValue(value)
+    setIsSecondFieldError(false)
+  }
 
   // 3-th question state
   const [correspondenceUserAnswer, setCorrespondenceUserAnswer] = useState("")
+  const [isThirdFieldError, setIsThirdFieldError] = useState(false)
+  const handleThirdFieldChange = (value) => {
+    setCorrespondenceUserAnswer(value)
+    setIsThirdFieldError(false)
+  }
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -43,13 +53,15 @@ export const NumForm = ({ className, id, nodData, ...props }) => {
       alert("Верно!")
     } else {
       setFirstFieldError(!isWordsQuestionValid)
+      setIsSecondFieldError(!isEvenQuestionValid)
+      setIsThirdFieldError(!isCorrespondenceValid)
       alert("Неверно!")
     }
   }
 
   return (
     <form id={id} className={className} onSubmit={handleSubmit}>
-      {/* 1-rd question */}
+      {/* 1-st question */}
       <div className="form-group">
         <NumTextInput
           id="firstField"
@@ -63,33 +75,41 @@ export const NumForm = ({ className, id, nodData, ...props }) => {
         />
       </div>
 
-      {/* 2-rd question */}
-      <div className="form-group">
-        <div className="label-text">Какое это число?</div>
+      {/* 2-nd question */}
+      <div id="typeOfNumber" className="form-group" role="radiogroup">
+        <label
+          className={`label-text ${isSecondFieldError ? "field-error" : ""}`}
+          htmlFor="typeOfNumber"
+        >
+          Какое это число?
+        </label>
         <div className="radio-group--inline">
           <NumRadioButton
             name="even-option"
             label={"Четное"}
             value="even"
             checked={radioValue === "even"}
-            onChange={(value) => setRadioValue(value)}
+            onChange={(value) => handleSecondFieldChange(value)}
           />
           <NumRadioButton
             name="odd-option"
             label={"Нечетное"}
             value="odd"
             checked={radioValue === "odd"}
-            onChange={(value) => setRadioValue(value)}
+            onChange={(value) => handleSecondFieldChange(value)}
           />
         </div>
       </div>
 
       {/* 3-rd question */}
       {nodData?.correspondence && (
-        <div className="form-group">
-          <div className="label-text">
+        <div id="correspondence" className="form-group" role="radiogroup">
+          <label
+            className={`label-text ${isThirdFieldError ? "field-error" : ""}`}
+            htmlFor="typeOfNumber"
+          >
             К какому из следующих описаний число подходит лучше всего?
-          </div>
+          </label>
           {nodData.correspondence.map(({ value, description }) => {
             return (
               <NumRadioButton
@@ -98,7 +118,7 @@ export const NumForm = ({ className, id, nodData, ...props }) => {
                 label={description}
                 value={value}
                 checked={correspondenceUserAnswer === value}
-                onChange={(value) => setCorrespondenceUserAnswer(value)}
+                onChange={(value) => handleThirdFieldChange(value)}
               />
             )
           })}

@@ -24,3 +24,6 @@
   font-size: 14px;
   font-weight: 500;
 }
+.field-error {
+  color: var(--md-destructive);
+}
