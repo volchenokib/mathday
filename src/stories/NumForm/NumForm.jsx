@@ -3,25 +3,48 @@ import "./numForm.css"
 import { Button } from "../Button/Button.jsx"
 import { NumTextInput } from "../NumTextInput/NumTextInput.jsx"
 import { NumRadioButton } from "../NumRadioButton/NumRadioButton.jsx"
+import { checkOdd, checkCorrespondence } from "../../../utils/index.js"
 
-export const NumForm = ({
-  className,
-  onFormSubmit,
-  id,
-  nodData,
-  isFirstError,
-  ...props
-}) => {
+export const NumForm = ({ className, id, nodData, ...props }) => {
   // 1-st question state
-  const [textInput, setTextInput] = useState("")
+  const [firstField, setFirstField] = useState("")
+  const [isFirstFieldError, setFirstFieldError] = useState(false)
+  const handleFirstFieldChange = (e) => {
+    setFirstField(e.target.value)
+    setFirstFieldError(false)
+  }
+
   // 2-nd question state
   const [radioValue, setRadioValue] = useState("")
+
   // 3-th question state
   const [correspondenceUserAnswer, setCorrespondenceUserAnswer] = useState("")
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault()
-    onFormSubmit({ textInput, radioValue, correspondenceUserAnswer })
+
+    // Check if all fields are filled
+    if (!firstField || !radioValue) {
+      alert("Заполните все поля.")
+      return
+    }
+
+    const isWordsQuestionValid = nodData.wordsRu.includes(
+      firstField.toLowerCase().trim()
+    )
+    const isEvenQuestionValid = radioValue === checkOdd(nodData.value)
+    const isCorrespondenceValid = checkCorrespondence(
+      correspondenceUserAnswer,
+      nodData.correspondence
+    )
+
+    // Check if all answers are valid
+    if (isWordsQuestionValid && isEvenQuestionValid && isCorrespondenceValid) {
+      alert("Верно!")
+    } else {
+      setFirstFieldError(!isWordsQuestionValid)
+      alert("Неверно!")
+    }
   }
 
   return (
@@ -29,14 +52,14 @@ export const NumForm = ({
       {/* 1-rd question */}
       <div className="form-group">
         <NumTextInput
-          id="textInput"
+          id="firstField"
           type={"text"}
-          name={"wordInput"}
+          name={"firstField"}
           label={"Cловами"}
           placeholder={"Напиши число словами"}
-          value={textInput}
-          error={isFirstError}
-          onChange={(e) => setTextInput(e.target.value)}
+          value={firstField}
+          error={isFirstFieldError}
+          onChange={handleFirstFieldChange}
         />
       </div>
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import useMobileCheck from "./hooks/useMobileCheck.js"
 import { NumCard } from "./stories/NumCard/NumCard.jsx"
-import { day, checkOdd, checkCorrespondence } from "../utils/index.js"
+import { day } from "../utils/index.js"
 import { NumForm } from "./stories/NumForm/NumForm.jsx"
 
 function AppMain() {
@@ -25,35 +25,6 @@ function AppMain() {
       .catch((error) => console.error("Error fetching data: ", error))
   }, [])
 
-  const [isFirstError, setIsFirstError] = useState(false)
-
-  function handleSubmit({ textInput, radioValue, correspondenceUserAnswer }) {
-    // event.preventDefault();
-
-    // Валидация
-    if (!textInput || !radioValue) {
-      alert("Заполните все поля.")
-      return
-    }
-
-    const isWordsQuestionValid = nodData.wordsRu.includes(
-      textInput.toLowerCase().trim()
-    )
-    const isEvenQuestionValid = radioValue === checkOdd(nodData.value)
-    const isCorrespondenceValid = checkCorrespondence(
-      correspondenceUserAnswer,
-      nodData.correspondence
-    )
-
-    // Проверка ответа пользователя
-    if (isWordsQuestionValid && isEvenQuestionValid && isCorrespondenceValid) {
-      alert("Верно!")
-    } else {
-      setIsFirstError(!isWordsQuestionValid)
-      alert("Неверно!")
-    }
-  }
-
   return (
     <main className="app-main" id="app">
       {isMobile && (
@@ -72,7 +43,6 @@ function AppMain() {
               id={"mobile-form"}
               className={"quiz-form"}
               nodData={nodData}
-              onFormSubmit={handleSubmit}
             />
           )}
         </NumCard>
@@ -90,8 +60,6 @@ function AppMain() {
                 id={"desktop-form"}
                 className={"quiz-form"}
                 nodData={nodData}
-                isFirstError={isFirstError}
-                onFormSubmit={handleSubmit}
               />
             </div>
           </NumCard>
