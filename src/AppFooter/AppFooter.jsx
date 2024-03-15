@@ -6,7 +6,7 @@ function AppFooter() {
     <footer className="app-footer">
       <div className="footer-inner">
         <span className="text-center">
-          © И.Б. Волченок, {new Date().getFullYear()}
+          © Игорь Волченок, {new Date().getFullYear()}
         </span>
       </div>
     </footer>
