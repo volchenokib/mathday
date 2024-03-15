@@ -12,6 +12,8 @@
 
 ## Roadmap
 
+- [ ] Subscriptions - Q4 2024
+- [ ] Authentication - Q4 2024
 - [ ] Second form for questions about the NOD - Q3 2024
 - [ ] Tab component for 2-nd form of the NOD - Q3 2024
 - [ ] Font size management - Q2 2024
