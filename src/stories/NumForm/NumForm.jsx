@@ -4,6 +4,7 @@ import { Button } from "../Button/Button.jsx"
 import { NumTextInput } from "../NumTextInput/NumTextInput.jsx"
 import { NumRadioButton } from "../NumRadioButton/NumRadioButton.jsx"
 import { checkOdd, checkCorrespondence } from "../../../utils/index.js"
+import { NumMessage } from "../NumMessage/NumMessage.jsx"
 
 export const NumForm = ({ className, id, nodData, ...props }) => {
   // 1-st question state
@@ -30,6 +31,9 @@ export const NumForm = ({ className, id, nodData, ...props }) => {
     setIsThirdFieldError(false)
   }
 
+  // Message state
+  const [msgType, setMsgType] = useState("")
+
   function handleSubmit(e) {
     e.preventDefault()
 
@@ -50,12 +54,13 @@ export const NumForm = ({ className, id, nodData, ...props }) => {
 
     // Check if all answers are valid
     if (isWordsQuestionValid && isEvenQuestionValid && isCorrespondenceValid) {
-      alert("Верно!")
+      // alert("Верно!")
+      setMsgType("success")
     } else {
       setFirstFieldError(!isWordsQuestionValid)
       setIsSecondFieldError(!isEvenQuestionValid)
       setIsThirdFieldError(!isCorrespondenceValid)
-      alert("Неверно!")
+      setMsgType("error")
     }
   }
 
@@ -124,6 +129,11 @@ export const NumForm = ({ className, id, nodData, ...props }) => {
           })}
         </div>
       )}
+
+      <div className="from-message-container">
+        {msgType && <NumMessage type={msgType} />}
+      </div>
+
       <div className="form-group">
         <Button type="submit" label={"Проверить"} primary={true} />
       </div>

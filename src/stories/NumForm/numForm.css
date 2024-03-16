@@ -14,7 +14,6 @@
   gap: 8px;
   margin-bottom: 0.5rem;
 }
-
 .radio-group--inline {
   display: flex;
   gap: 1rem;
@@ -26,4 +25,7 @@
 }
 .field-error {
   color: var(--md-destructive);
+}
+.from-message-container {
+  height: 41px;
 }
