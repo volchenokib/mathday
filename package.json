@@ -1,6 +1,6 @@
 {
   "name": "math_day",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "scripts": {
     "predev": "node -e \"const semver = require('semver'); if (!semver.satisfies(process.version, '^18.0.0 || >=20.0.0')) { console.error('Unsupported Node.js version'); process.exit(1); }\"",
@@ -16,8 +16,10 @@
   "dependencies": {
     "analytics-node": "^5.0.0",
     "google-auth-library": "^9.6.3",
+    "katex": "^0.16.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-katex": "^3.0.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.0",
