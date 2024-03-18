@@ -39,9 +39,7 @@ function AppMain() {
           headerButtonHandler={() => setIsCardBackSide(!isCardBackSide)}
         >
           {isCardBackSide ? (
-            nodData?.infoRu?.map((txt, idx) => {
-              return <p key={`p-${idx}`}>{txt}</p>
-            })
+            <AppContent data={nodData} />
           ) : (
             <AppQuiz
               id={"mobile-form"}
