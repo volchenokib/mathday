@@ -34,10 +34,11 @@ body {
   line-height: 48px;
   letter-spacing: 0.04em;
 }
-p {
+.p {
   font-size: 16px;
   line-height: 24px;
   color: var(--slate-900);
+  margin-bottom: 0.5rem;
 }
 .large {
   font-size: 18px;

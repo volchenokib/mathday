@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react"
-import useMobileCheck from "./hooks/useMobileCheck.js"
+import { AppQuiz } from "./AppQuiz/AppQuiz.jsx"
+import { AppContent } from "./AppContent/AppContent.jsx"
 import { NumCard } from "./stories/NumCard/NumCard.jsx"
 import { day } from "../utils/index.js"
-import { NumForm } from "./stories/NumForm/NumForm.jsx"
+// import { findNodInArrays } from "../utils/nod.js"
+import useMobileCheck from "./hooks/useMobileCheck.js"
 
 function AppMain() {
   const [nodData, setNodData] = useState(null)
@@ -39,7 +41,7 @@ function AppMain() {
               return <p key={`p-${idx}`}>{txt}</p>
             })
           ) : (
-            <NumForm
+            <AppQuiz
               id={"mobile-form"}
               className={"quiz-form"}
               nodData={nodData}
@@ -56,7 +58,7 @@ function AppMain() {
             subtitle={"число дня"}
           >
             <div className="form-container">
-              <NumForm
+              <AppQuiz
                 id={"desktop-form"}
                 className={"quiz-form"}
                 nodData={nodData}
@@ -65,9 +67,7 @@ function AppMain() {
           </NumCard>
 
           <div className="info-container">
-            {nodData?.infoRu?.map((txt, idx) => {
-              return <p key={`p-${idx}`}>{txt}</p>
-            })}
+            <AppContent data={nodData?.content} />
           </div>
         </>
       )}

@@ -1,12 +1,12 @@
 import React, { useState } from "react"
-import "./numForm.css"
-import { Button } from "../Button/Button.jsx"
-import { NumTextInput } from "../NumTextInput/NumTextInput.jsx"
-import { NumRadioButton } from "../NumRadioButton/NumRadioButton.jsx"
-import { checkOdd, checkCorrespondence } from "../../../utils/index.js"
-import { NumMessage } from "../NumMessage/NumMessage.jsx"
+import "./appQuiz.css"
+import { Button } from "../stories/Button/Button.jsx"
+import { NumTextInput } from "../stories/NumTextInput/NumTextInput.jsx"
+import { NumRadioButton } from "../stories/NumRadioButton/NumRadioButton.jsx"
+import { NumMessage } from "../stories/NumMessage/NumMessage.jsx"
+import { checkOdd, checkCorrespondence } from "../../utils/index.js"
 
-export const NumForm = ({ className, id, nodData, ...props }) => {
+export const AppQuiz = ({ className, id, nodData, ...props }) => {
   // 1-st question state
   const [firstField, setFirstField] = useState("")
   const [isFirstFieldError, setFirstFieldError] = useState(false)
@@ -43,13 +43,13 @@ export const NumForm = ({ className, id, nodData, ...props }) => {
       return
     }
 
-    const isWordsQuestionValid = nodData.wordsRu.includes(
+    const isWordsQuestionValid = nodData.quiz.wordsRu.includes(
       firstField.toLowerCase().trim()
     )
     const isEvenQuestionValid = radioValue === checkOdd(nodData.value)
     const isCorrespondenceValid = checkCorrespondence(
       correspondenceUserAnswer,
-      nodData.correspondence
+      nodData.quiz.correspondence
     )
 
     // Check if all answers are valid
@@ -107,15 +107,15 @@ export const NumForm = ({ className, id, nodData, ...props }) => {
       </div>
 
       {/* 3-rd question */}
-      {nodData?.correspondence && (
+      {nodData?.quiz?.correspondence && (
         <div id="correspondence" className="form-group" role="radiogroup">
           <label
             className={`label-text ${isThirdFieldError ? "field-error" : ""}`}
             htmlFor="typeOfNumber"
           >
-            К какому из следующих описаний число подходит лучше всего?
+            Выберите правильное утверждение из следующих:
           </label>
-          {nodData.correspondence.map(({ value, description }) => {
+          {nodData.quiz.correspondence.map(({ value, description }) => {
             return (
               <NumRadioButton
                 key={value}
