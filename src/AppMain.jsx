@@ -27,6 +27,8 @@ function AppMain() {
       .catch((error) => console.error("Error fetching data: ", error))
   }, [])
 
+  // console.log("findNodInArrays: ", findNodInArrays(2))
+
   return (
     <main className="app-main" id="app">
       {isMobile && (
@@ -67,7 +69,7 @@ function AppMain() {
           </NumCard>
 
           <div className="info-container">
-            <AppContent data={nodData?.content} />
+            <AppContent data={nodData} />
           </div>
         </>
       )}

@@ -19,3 +19,12 @@ export function checkCorrespondence(userAnswer, options) {
   const rightAnswer = options.find((item) => item.isRight)
   return userAnswer === rightAnswer.value
 }
+
+export function describeHarshadNumber(n) {
+  // Преобразовываем число в массив его цифр
+  const digits = n.toString().split("").map(Number)
+  // Вычисляем сумму цифр
+  const sum = digits.reduce((acc, val) => acc + val, 0)
+  // Формируем и возвращаем результат в нужном формате
+  return `${digits.join(" + ")} = ${sum}`
+}
