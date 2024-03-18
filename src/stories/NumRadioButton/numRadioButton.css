@@ -29,6 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .num-radio-button-icon-wrapper {
   display: flex;
