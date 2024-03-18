@@ -113,7 +113,7 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
             className={`label-text ${isThirdFieldError ? "field-error" : ""}`}
             htmlFor="typeOfNumber"
           >
-            Выберите правильное утверждение из следующих:
+            К какому из следующих описаний число подходит лучше всего?
           </label>
           {nodData.quiz.correspondence.map(({ value, description }) => {
             return (
