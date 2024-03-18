@@ -5,6 +5,7 @@ import { NumTextInput } from "../stories/NumTextInput/NumTextInput.jsx"
 import { NumRadioButton } from "../stories/NumRadioButton/NumRadioButton.jsx"
 import { NumMessage } from "../stories/NumMessage/NumMessage.jsx"
 import { checkOdd, checkCorrespondence } from "../utils/index.js"
+import { numToWords } from "../utils/numToWords.js"
 
 export const AppQuiz = ({ className, id, nodData, ...props }) => {
   // 1-st question state
@@ -43,10 +44,12 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
       return
     }
 
-    const isWordsQuestionValid = nodData.quiz.wordsRu.includes(
-      firstField.toLowerCase().trim()
-    )
+    const isWordsQuestionValid =
+      firstField.toLowerCase().trim() ===
+      numToWords(nodData.value).toLowerCase().trim()
+
     const isEvenQuestionValid = radioValue === checkOdd(nodData.value)
+
     const isCorrespondenceValid = checkCorrespondence(
       correspondenceUserAnswer,
       nodData.quiz.correspondence

@@ -21,8 +21,6 @@ export const nodData = {
   id,
   value,
   quiz: {
-    wordsEn: ["one hundred forty-four"],
-    wordsRu: ["сто сорок четыре"],
     correspondence: [
       {
         value: 1,
