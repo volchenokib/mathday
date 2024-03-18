@@ -4,7 +4,7 @@ import { Button } from "../stories/Button/Button.jsx"
 import { NumTextInput } from "../stories/NumTextInput/NumTextInput.jsx"
 import { NumRadioButton } from "../stories/NumRadioButton/NumRadioButton.jsx"
 import { NumMessage } from "../stories/NumMessage/NumMessage.jsx"
-import { checkOdd, checkCorrespondence } from "../../utils/index.js"
+import { checkOdd, checkCorrespondence } from "../utils/index.js"
 
 export const AppQuiz = ({ className, id, nodData, ...props }) => {
   // 1-st question state

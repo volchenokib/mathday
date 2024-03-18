@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react"
 import { AppQuiz } from "./AppQuiz/AppQuiz.jsx"
 import { AppContent } from "./AppContent/AppContent.jsx"
 import { NumCard } from "./stories/NumCard/NumCard.jsx"
-import { day } from "../utils/index.js"
-// import { findNodInArrays } from "../utils/nod.js"
+import { day } from "./utils/index.js"
+import { nodData } from "./data/index.js"
 import useMobileCheck from "./hooks/useMobileCheck.js"
 
 function AppMain() {
-  const [nodData, setNodData] = useState(null)
+  // const [nodData, setNodData] = useState(null)
 
   const isMobile = useMobileCheck()
   const [isCardBackSide, setIsCardBackSide] = useState(false)
@@ -15,19 +15,19 @@ function AppMain() {
   const dbUrl = import.meta.env.VITE_DB_URL
   const URL = `${dbUrl}/${day}.json`
 
-  useEffect(() => {
-    fetch(URL, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setNodData(data))
-      .catch((error) => console.error("Error fetching data: ", error))
-  }, [])
+  // useEffect(() => {
+  //   fetch(URL, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => setNodData(data))
+  //     .catch((error) => console.error("Error fetching data: ", error))
+  // }, [])
 
-  // console.log("findNodInArrays: ", findNodInArrays(2))
+  console.log("nodData: ", nodData) // setNodData(nodData)
 
   return (
     <main className="app-main" id="app">

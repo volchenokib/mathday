@@ -1,5 +1,5 @@
 import { InlineMath, BlockMath } from "react-katex"
-import { describeHarshadNumber } from "../../utils/index.js"
+import { describeHarshadNumber } from "../utils/index.js"
 import "katex/dist/katex.min.css"
 import "./appSequences.css"
 
