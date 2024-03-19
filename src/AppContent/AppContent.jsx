@@ -4,6 +4,7 @@ import {
   harshad,
   lucky,
   padovan,
+  ulam,
 } from "../AppSequences/AppSequences"
 
 export const AppContent = ({ data }) => {
@@ -12,6 +13,7 @@ export const AppContent = ({ data }) => {
     harshad,
     lucky,
     padovan,
+    ulam,
   }
 
   const renderSpecificComponent = (componentName) => {
