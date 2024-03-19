@@ -6,6 +6,7 @@ import { NumRadioButton } from "../stories/NumRadioButton/NumRadioButton.jsx"
 import { NumMessage } from "../stories/NumMessage/NumMessage.jsx"
 import { checkOdd } from "../utils/index.js"
 import { numToWords } from "../utils/numToWords.js"
+import { useTranslation } from "react-i18next"
 
 export const AppQuiz = ({ className, id, nodData, ...props }) => {
   // 1-st question state
@@ -61,6 +62,7 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
     const isEvenQuestionValid = radioValue === checkOdd(nodData.value)
 
     const isThirdValid = () => {
+      if (!thirdField) return false
       if (checkOdd(nodData.value) === "even" && nodData.value <= 1000) {
         return thirdField.trim() === (nodData.value / 2).toString()
       }
@@ -70,6 +72,7 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
     const isFourthValid = fourthField === (nodData.value % 3 === 0)
 
     const isFifthValid = () => {
+      if (!fifthField) return false
       if (nodData.value <= 500) {
         return fifthField.trim() === (nodData.value * 2).toString()
       }
@@ -80,20 +83,21 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
     if (
       isWordsQuestionValid &&
       isEvenQuestionValid &&
-      isThirdValid &&
+      isThirdValid() &&
       isFourthValid &&
-      isFifthValid
+      isFifthValid()
     ) {
       setMsgType("success")
     } else {
       setFirstFieldError(!isWordsQuestionValid)
       setIsSecondFieldError(!isEvenQuestionValid)
-      setIsThirdFieldError(!isThirdValid)
+      setIsThirdFieldError(!isThirdValid())
       setIsFourthFieldError(!isFourthValid)
-      setFifthFieldError(!isFifthValid)
+      setFifthFieldError(!isFifthValid())
       setMsgType("error")
     }
   }
+  const { t } = useTranslation()
 
   return (
     <form id={id} className={className} onSubmit={handleSubmit}>
@@ -103,8 +107,8 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
           id="firstField"
           type={"text"}
           name={"firstField"}
-          label={"Число прописью"}
-          placeholder={"Напиши число словами"}
+          label={t("In words")}
+          placeholder={t("Enter the number in words")}
           autofocus={true}
           value={firstField}
           error={isFirstFieldError}
@@ -118,19 +122,19 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
           className={`label-text ${isSecondFieldError ? "field-error" : ""}`}
           htmlFor="typeOfNumber"
         >
-          Какое это число?
+          {t("even_odd_label")}
         </label>
         <div className="radio-group--inline">
           <NumRadioButton
             name="even-option"
-            label={"Четное"}
+            label={t("even")}
             value="even"
             checked={radioValue === "even"}
             onChange={(value) => handleSecondFieldChange(value)}
           />
           <NumRadioButton
             name="odd-option"
-            label={"Нечетное"}
+            label={t("odd")}
             value="odd"
             checked={radioValue === "odd"}
             onChange={(value) => handleSecondFieldChange(value)}
@@ -145,7 +149,7 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
             id="thirdField"
             type={"text"}
             name={"thirdField"}
-            label={"Подели число пополам"}
+            label={t("half_label")}
             placeholder={"÷2"}
             value={thirdField}
             error={isThirdFieldError}
@@ -160,19 +164,19 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
           className={`label-text ${isFourthFieldError ? "field-error" : ""}`}
           htmlFor="typeOfNumber"
         >
-          Это число делиться на 3 без остатка?
+          {`${t("divisible_by_label")} 3?`}
         </label>
         <div className="radio-group--inline">
           <NumRadioButton
             name="yes-option"
-            label={"Да"}
+            label={t("yes")}
             value={true}
             checked={fourthField === true}
             onChange={(value) => handleFourthFieldChange(value)}
           />
           <NumRadioButton
             name="no-option"
-            label={"Нет"}
+            label={t("no")}
             value={false}
             checked={fourthField === false}
             onChange={(value) => handleFourthFieldChange(value)}
@@ -187,7 +191,7 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
             id="fifthField"
             type={"text"}
             name={"fifthField"}
-            label={"Удвой число"}
+            label={t("double_label")}
             placeholder={"×2"}
             value={fifthField}
             error={isFifthFieldError}
@@ -201,7 +205,7 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
       </div>
 
       <div className="form-group">
-        <Button type="submit" label={"Проверить"} primary={true} />
+        <Button type="submit" label={t("check_btn")} primary={true} />
       </div>
     </form>
   )

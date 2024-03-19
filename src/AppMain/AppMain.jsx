@@ -1,6 +1,7 @@
 import React, { useState } from "react"
+import { useTranslation } from "react-i18next"
 import { AppQuiz } from "../AppQuiz/AppQuiz.jsx"
-import { AppContent } from "../AppContent/AppContent.jsx"
+// import { AppContent } from "../AppContent/AppContent.jsx"
 import { NumCard } from "../stories/NumCard/NumCard.jsx"
 import { nodData } from "../data/index.js"
 import useMobileCheck from "../hooks/useMobileCheck.js"
@@ -9,6 +10,7 @@ import "./appMain.css"
 function AppMain() {
   const isMobile = useMobileCheck()
   const [isCardBackSide, setIsCardBackSide] = useState(false)
+  const { t } = useTranslation()
 
   return (
     <main className="app-main" id="app">
@@ -16,10 +18,15 @@ function AppMain() {
         <NumCard
           title={nodData?.value.toString()}
           subtitle={"число дня"}
-          isHeaderButton={true}
+          isHeaderButton={false}
           headerButtonHandler={() => setIsCardBackSide(!isCardBackSide)}
         >
-          {isCardBackSide ? (
+          <AppQuiz
+            id={"mobile-form"}
+            className={"quiz-form"}
+            nodData={nodData}
+          />
+          {/* {isCardBackSide ? (
             <AppContent data={nodData} />
           ) : (
             <AppQuiz
@@ -27,7 +34,7 @@ function AppMain() {
               className={"quiz-form"}
               nodData={nodData}
             />
-          )}
+          )} */}
         </NumCard>
       )}
 
@@ -36,7 +43,7 @@ function AppMain() {
           <NumCard
             className={"num-card-custom"}
             title={nodData?.value.toString()}
-            subtitle={"число дня"}
+            subtitle={t("number of the day")}
           >
             <div className="form-container">
               <AppQuiz

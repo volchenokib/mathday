@@ -1,0 +1,34 @@
+{
+  "en": {
+    "number of the day": "number of the day",
+    "In words": "In words",
+    "Enter the number in words": "enter the number in words",
+    "even_odd_label": "Even or odd?",
+    "even": "Even",
+    "odd": "Odd",
+    "half_label": "Half it",
+    "divisible_by_label": "Divisible by",
+    "yes": "Yes",
+    "no": "No",
+    "double_label": "Double it",
+    "check_btn": "Check",
+    "correct_answer_msg": "Correct!",
+    "incorrect_answer_msg": "Wrong answer. Try again!"
+  },
+  "ru": {
+    "number of the day": "число дня",
+    "In words": "Число прописью",
+    "Enter the number in words": "напиши число словами",
+    "even_odd_label": "Какое это число?",
+    "even": "Четное",
+    "odd": "Нечетное",
+    "half_label": "Подели число пополам",
+    "divisible_by_label": "Это число делится без остатка на",
+    "yes": "Да",
+    "no": "Нет",
+    "double_label": "Удвой число",
+    "check_btn": "Проверить",
+    "correct_answer_msg": "Верно!",
+    "incorrect_answer_msg": "Неправильно. Попробуй еще раз!"
+  }
+}
