@@ -10,6 +10,7 @@ export const NumTextInput = ({
   name,
   label,
   placeholder,
+  autofocus,
   required,
   value,
   error,
@@ -30,6 +31,7 @@ export const NumTextInput = ({
         placeholder={placeholder}
         required={required}
         autoComplete="off"
+        autoFocus={autofocus}
         value={value}
         className={`num-text-input`}
         {...props}
@@ -42,6 +44,7 @@ NumTextInput.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
+  autofocus: PropTypes.bool,
   required: PropTypes.bool,
   value: PropTypes.string,
   label: PropTypes.string,
@@ -53,6 +56,7 @@ NumTextInput.defaultProps = {
   name: "numTextInput",
   label: "NumTextInput",
   placeholder: "NumTextInput",
+  autofocus: false,
   required: false,
   value: "",
   onClick: undefined,

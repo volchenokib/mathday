@@ -94,8 +94,9 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
           id="firstField"
           type={"text"}
           name={"firstField"}
-          label={"Cловами"}
+          label={"Число прописью"}
           placeholder={"Напиши число словами"}
+          autofocus={true}
           value={firstField}
           error={isFirstFieldError}
           onChange={handleFirstFieldChange}
