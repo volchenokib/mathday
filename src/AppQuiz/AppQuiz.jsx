@@ -25,10 +25,10 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
   }
 
   // 3-th question state
-  const [correspondenceUserAnswer, setCorrespondenceUserAnswer] = useState("")
+  const [thirdField, setThirdField] = useState("")
   const [isThirdFieldError, setIsThirdFieldError] = useState(false)
-  const handleThirdFieldChange = (value) => {
-    setCorrespondenceUserAnswer(value)
+  const handleThirdFieldChange = (e) => {
+    setThirdField(e.target.value)
     setIsThirdFieldError(false)
   }
 
@@ -50,19 +50,17 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
 
     const isEvenQuestionValid = radioValue === checkOdd(nodData.value)
 
-    const isCorrespondenceValid = checkCorrespondence(
-      correspondenceUserAnswer,
-      nodData.quiz.correspondence
-    )
+    debugger
+    const isThirdValid = thirdField.trim() === (nodData.value / 2).toString()
 
     // Check if all answers are valid
-    if (isWordsQuestionValid && isEvenQuestionValid && isCorrespondenceValid) {
+    if (isWordsQuestionValid && isEvenQuestionValid && isThirdValid) {
       // alert("Верно!")
       setMsgType("success")
     } else {
       setFirstFieldError(!isWordsQuestionValid)
       setIsSecondFieldError(!isEvenQuestionValid)
-      setIsThirdFieldError(!isCorrespondenceValid)
+      setIsThirdFieldError(!isThirdValid)
       setMsgType("error")
     }
   }
@@ -110,26 +108,18 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
       </div>
 
       {/* 3-rd question */}
-      {nodData?.quiz?.correspondence && (
-        <div id="correspondence" className="form-group" role="radiogroup">
-          <label
-            className={`label-text ${isThirdFieldError ? "field-error" : ""}`}
-            htmlFor="typeOfNumber"
-          >
-            К какому из следующих описаний число подходит лучше всего?
-          </label>
-          {nodData.quiz.correspondence.map(({ value, description }) => {
-            return (
-              <NumRadioButton
-                key={value}
-                name={`value-option-${value}`}
-                label={description}
-                value={value}
-                checked={correspondenceUserAnswer === value}
-                onChange={(value) => handleThirdFieldChange(value)}
-              />
-            )
-          })}
+      {checkOdd(nodData.value) === "even" && nodData.value < 1000 && (
+        <div id="thirdField" className="form-group">
+          <NumTextInput
+            id="thirdField"
+            type={"text"}
+            name={"thirdField"}
+            label={"Подели число пополам"}
+            placeholder={"Подели число пополам"}
+            value={thirdField}
+            error={isThirdFieldError}
+            onChange={handleThirdFieldChange}
+          />
         </div>
       )}
 
