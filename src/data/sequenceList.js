@@ -14,6 +14,7 @@ sequences.set(
     7777, 9999, 17344, 22222, 38962,
   ]
 )
+// Обильные числа
 sequences.set(
   "abundant",
   [
@@ -21,6 +22,7 @@ sequences.set(
     90, 96, 100, 102, 104, 108, 112, 114, 120,
   ]
 )
+// Совершенные числа
 sequences.set("perfect", [6, 28, 496, 8128])
 // счастливые числа
 sequences.set(
@@ -44,7 +46,7 @@ sequences.set(
 )
 sequences.set("mersenne", [3, 7, 31, 127, 8191, 131071, 524287])
 sequences.set(
-  "armstrong",
+  "narcissistic",
   [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407, 1634, 8208, 9474, 54748,
     92727, 93084, 548834,

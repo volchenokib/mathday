@@ -5,6 +5,11 @@ import {
   lucky,
   padovan,
   ulam,
+  kaprekar,
+  abundant,
+  perfect,
+  mersenne,
+  narcissistic,
 } from "../AppSequences/AppSequences"
 
 export const AppContent = ({ data }) => {
@@ -14,6 +19,11 @@ export const AppContent = ({ data }) => {
     lucky,
     padovan,
     ulam,
+    kaprekar,
+    abundant,
+    perfect,
+    mersenne,
+    narcissistic,
   }
 
   const renderSpecificComponent = (componentName) => {

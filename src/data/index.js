@@ -12,7 +12,7 @@ function findSequencesName(value) {
   return sequencesName
 }
 
-const id = day // day - 1
+const id = day - 1
 const value = nodList[id]
 
 export const nodData = {
