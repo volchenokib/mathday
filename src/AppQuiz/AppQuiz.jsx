@@ -60,11 +60,21 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
 
     const isEvenQuestionValid = radioValue === checkOdd(nodData.value)
 
-    const isThirdValid = thirdField.trim() === (nodData.value / 2).toString()
+    const isThirdValid = () => {
+      if (checkOdd(nodData.value) === "even" && nodData.value <= 1000) {
+        return thirdField.trim() === (nodData.value / 2).toString()
+      }
+      return true
+    }
 
     const isFourthValid = fourthField === (nodData.value % 3 === 0)
 
-    const isFifthValid = fifthField.trim() === (nodData.value * 2).toString()
+    const isFifthValid = () => {
+      if (nodData.value <= 500) {
+        return fifthField.trim() === (nodData.value * 2).toString()
+      }
+      return true
+    }
 
     // Check if all answers are valid
     if (
@@ -74,7 +84,6 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
       isFourthValid &&
       isFifthValid
     ) {
-      // alert("Верно!")
       setMsgType("success")
     } else {
       setFirstFieldError(!isWordsQuestionValid)
