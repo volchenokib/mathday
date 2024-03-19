@@ -4,7 +4,7 @@ import { Button } from "../stories/Button/Button.jsx"
 import { NumTextInput } from "../stories/NumTextInput/NumTextInput.jsx"
 import { NumRadioButton } from "../stories/NumRadioButton/NumRadioButton.jsx"
 import { NumMessage } from "../stories/NumMessage/NumMessage.jsx"
-import { checkOdd, checkCorrespondence } from "../utils/index.js"
+import { checkOdd } from "../utils/index.js"
 import { numToWords } from "../utils/numToWords.js"
 
 export const AppQuiz = ({ className, id, nodData, ...props }) => {
@@ -32,17 +32,27 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
     setIsThirdFieldError(false)
   }
 
+  // 4-th question state
+  const [fourthField, setFourthField] = useState("")
+  const [isFourthFieldError, setIsFourthFieldError] = useState(false)
+  const handleFourthFieldChange = (value) => {
+    setFourthField(value)
+    setIsFourthFieldError(false)
+  }
+
+  // 5-st question state
+  const [fifthField, setFifthField] = useState("")
+  const [isFifthFieldError, setFifthFieldError] = useState(false)
+  const handleFifthFieldChange = (e) => {
+    setFifthField(e.target.value)
+    setFifthFieldError(false)
+  }
+
   // Message state
   const [msgType, setMsgType] = useState("")
 
   function handleSubmit(e) {
     e.preventDefault()
-
-    // Check if all fields are filled
-    if (!firstField || !radioValue) {
-      alert("Заполните все поля.")
-      return
-    }
 
     const isWordsQuestionValid =
       firstField.toLowerCase().trim() ===
@@ -50,17 +60,28 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
 
     const isEvenQuestionValid = radioValue === checkOdd(nodData.value)
 
-    debugger
     const isThirdValid = thirdField.trim() === (nodData.value / 2).toString()
 
+    const isFourthValid = fourthField === (nodData.value % 3 === 0)
+
+    const isFifthValid = fifthField.trim() === (nodData.value * 2).toString()
+
     // Check if all answers are valid
-    if (isWordsQuestionValid && isEvenQuestionValid && isThirdValid) {
+    if (
+      isWordsQuestionValid &&
+      isEvenQuestionValid &&
+      isThirdValid &&
+      isFourthValid &&
+      isFifthValid
+    ) {
       // alert("Верно!")
       setMsgType("success")
     } else {
       setFirstFieldError(!isWordsQuestionValid)
       setIsSecondFieldError(!isEvenQuestionValid)
       setIsThirdFieldError(!isThirdValid)
+      setIsFourthFieldError(!isFourthValid)
+      setFifthFieldError(!isFifthValid)
       setMsgType("error")
     }
   }
@@ -108,17 +129,59 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
       </div>
 
       {/* 3-rd question */}
-      {checkOdd(nodData.value) === "even" && nodData.value < 1000 && (
+      {checkOdd(nodData.value) === "even" && nodData.value <= 1000 && (
         <div id="thirdField" className="form-group">
           <NumTextInput
             id="thirdField"
             type={"text"}
             name={"thirdField"}
             label={"Подели число пополам"}
-            placeholder={"Подели число пополам"}
+            placeholder={"÷2"}
             value={thirdField}
             error={isThirdFieldError}
             onChange={handleThirdFieldChange}
+          />
+        </div>
+      )}
+
+      {/* 4-nd question */}
+      <div id="typeOfNumber" className="form-group" role="radiogroup">
+        <label
+          className={`label-text ${isFourthFieldError ? "field-error" : ""}`}
+          htmlFor="typeOfNumber"
+        >
+          Это число делиться на 3 без остатка?
+        </label>
+        <div className="radio-group--inline">
+          <NumRadioButton
+            name="yes-option"
+            label={"Да"}
+            value={true}
+            checked={fourthField === true}
+            onChange={(value) => handleFourthFieldChange(value)}
+          />
+          <NumRadioButton
+            name="no-option"
+            label={"Нет"}
+            value={false}
+            checked={fourthField === false}
+            onChange={(value) => handleFourthFieldChange(value)}
+          />
+        </div>
+      </div>
+
+      {/* 5-rd question */}
+      {nodData.value <= 500 && (
+        <div id="fifthField" className="form-group">
+          <NumTextInput
+            id="fifthField"
+            type={"text"}
+            name={"fifthField"}
+            label={"Удвой число"}
+            placeholder={"×2"}
+            value={fifthField}
+            error={isFifthFieldError}
+            onChange={handleFifthFieldChange}
           />
         </div>
       )}

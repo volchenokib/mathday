@@ -58,7 +58,11 @@ NumRadioButton.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
   required: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+  ]),
   checked: PropTypes.bool,
   onChange: PropTypes.func,
 }
