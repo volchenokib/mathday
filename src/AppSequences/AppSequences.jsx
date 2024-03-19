@@ -34,8 +34,8 @@ export const fibonacci = () => {
 // счастливые числа
 export const lucky = () => {
   return (
-    <div className="p">
-      <span className="large">Lucky Numbers</span>
+    <div className="p sequence-p">
+      <span className="large">Lucky</span>
       <div className="p sequence-description">
         Это число принадлежит к последовательности счастливых чисел.
         <br />
