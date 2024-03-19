@@ -1,11 +1,11 @@
-@import url("./variables.css");
+@import url("../styles//variables.css");
 .app-main {
   background: var(--slate-200);
   display: flex;
   gap: 3rem;
   width: 100%;
-  max-width: 960px;
-  padding: 2rem 1rem 1rem 1rem;
+  max-width: 540px;
+  padding: 1rem;
   margin: 0 auto;
   flex: 1;
 }
@@ -25,9 +25,6 @@
   justify-content: center;
   min-width: 320px;
   text-align: left;
-}
-.num-card-custom {
-  max-width: 60%;
 }
 .info-container p {
   margin-bottom: 1.25rem;

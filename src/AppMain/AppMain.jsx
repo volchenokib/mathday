@@ -1,9 +1,10 @@
 import React, { useState } from "react"
-import { AppQuiz } from "./AppQuiz/AppQuiz.jsx"
-import { AppContent } from "./AppContent/AppContent.jsx"
-import { NumCard } from "./stories/NumCard/NumCard.jsx"
-import { nodData } from "./data/index.js"
-import useMobileCheck from "./hooks/useMobileCheck.js"
+import { AppQuiz } from "../AppQuiz/AppQuiz.jsx"
+import { AppContent } from "../AppContent/AppContent.jsx"
+import { NumCard } from "../stories/NumCard/NumCard.jsx"
+import { nodData } from "../data/index.js"
+import useMobileCheck from "../hooks/useMobileCheck.js"
+import "./appMain.css"
 
 function AppMain() {
   const isMobile = useMobileCheck()
@@ -45,10 +46,6 @@ function AppMain() {
               />
             </div>
           </NumCard>
-
-          <div className="info-container">
-            <AppContent data={nodData} />
-          </div>
         </>
       )}
     </main>

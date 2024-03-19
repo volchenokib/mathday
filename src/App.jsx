@@ -1,6 +1,6 @@
 import React from "react"
 import AppHeader from "./AppHeader"
-import AppMain from "./AppMain"
+import AppMain from "./AppMain/AppMain"
 import AppFooter from "./AppFooter/AppFooter"
 
 function App() {
