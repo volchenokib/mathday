@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import "./appQuiz.css"
-import { Button } from "../stories/Button/Button.jsx"
+import { NumButton } from "../stories/NumButton/NumButton.jsx"
 import { NumTextInput } from "../stories/NumTextInput/NumTextInput.jsx"
 import { NumRadioButton } from "../stories/NumRadioButton/NumRadioButton.jsx"
 import { NumMessage } from "../stories/NumMessage/NumMessage.jsx"
@@ -216,7 +216,7 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
       </div>
 
       <div className="form-group">
-        <Button type="submit" label={t("check_btn")} primary={true} />
+        <NumButton type="submit" label={t("check_btn")} primary={true} />
       </div>
     </form>
   )
