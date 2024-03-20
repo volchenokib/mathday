@@ -1,0 +1,16 @@
+@import url("../styles/variables.css");
+
+.app-header {
+  height: 56px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 2rem 0px 2rem;
+  border-bottom: 1px solid var(--md-border);
+}
+.siteName {
+  color: var(--slate-900);
+  font-size: 1.75em;
+  letter-spacing: 0.05em;
+}

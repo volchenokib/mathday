@@ -1,5 +1,5 @@
 import React from "react"
-import AppHeader from "./AppHeader"
+import AppHeader from "./AppHeader/AppHeader"
 import AppMain from "./AppMain/AppMain"
 import AppFooter from "./AppFooter/AppFooter"
 
