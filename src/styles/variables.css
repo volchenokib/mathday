@@ -12,4 +12,24 @@
   --slate-500: #64748b;
   --slate-600: #475569;
   --slate-900: #0f172a;
+  --accent-foreground: hsla(240 5.9% 10%);
+  --accent: hsla(240 4.8% 95.9%);
+  --muted-foreground: hsla(240 3.8% 46.1%);
+  --muted: hsla(240 4.8% 95.9%);
+  --secondary-foreground: hsla(240 5.9% 10%);
+  --secondary: hsla(240 4.8% 95.9%);
+  --primary-foreground: hsla(0 0% 98%);
+  --primary: hsla(240 5.9% 10%);
+  --popover-foreground: hsla(240 10% 3.9%);
+  --popover: hsla(0 0% 100%);
+  --card-foreground: hsla(240 10% 3.9%);
+  --card: hsla(0 0% 100%);
+  --foreground: hsla(240 10% 3.9%);
+  --background: hsla(0 0% 100%);
+  --border: hsla(240 5.9% 90%);
+  --destructive-foreground: hsla(0 0% 98%);
+  --destructive: hsla(0 72.22% 50.59%);
+  --input: hsla(240 5.9% 90%);
+  --ring: hsla(240 5% 64.9%);
+  --radius: 0.5rem;
 }

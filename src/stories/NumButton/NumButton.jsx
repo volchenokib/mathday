@@ -10,17 +10,16 @@ export const NumButton = ({
   backgroundColor,
   size,
   label,
+  type,
   ...props
 }) => {
-  const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary"
   return (
     <button
       type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " "
-      )}
+      className={`
+      num-button
+      num-button--${size}
+      num-button--${type}`}
       style={backgroundColor && { backgroundColor }}
       {...props}
     >
@@ -49,6 +48,7 @@ NumButton.propTypes = {
   /**
    * Optional click handler
    */
+  type: PropTypes.string,
   onClick: PropTypes.func,
 }
 
@@ -56,5 +56,6 @@ NumButton.defaultProps = {
   backgroundColor: null,
   primary: false,
   size: "medium",
+  type: "button",
   onClick: undefined,
 }

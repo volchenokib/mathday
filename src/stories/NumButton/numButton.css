@@ -1,6 +1,6 @@
 @import url("../../styles/variables.css");
 
-.storybook-button {
+.num-button {
   font-weight: 400;
   border: 0;
   border-radius: 0.5em;
@@ -8,25 +8,31 @@
   display: inline-block;
   line-height: 1;
 }
-.storybook-button--primary {
+.num-button--primary {
   color: var(--md-white);
   background-color: var(--slate-900);
 }
-.storybook-button--secondary {
+.num-button--secondary {
   color: #333;
   background-color: transparent;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
-.storybook-button--small {
+.num-button--small {
   font-size: 12px;
   padding: 10px 16px;
 }
-.storybook-button--medium {
+.num-button--medium {
   font-size: 14px;
   line-height: 24px;
   padding: 8px 16px;
 }
-.storybook-button--large {
+.num-button--large {
   font-size: 16px;
   padding: 12px 24px;
+}
+.num-button--text {
+  background: transparent;
+}
+.num-button--text:hover {
+  background: var(--accent);
 }

@@ -216,7 +216,7 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
       </div>
 
       <div className="form-group">
-        <NumButton type="submit" label={t("check_btn")} primary={true} />
+        <NumButton type="primary" label={t("check_btn")} primary={true} />
       </div>
     </form>
   )

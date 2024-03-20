@@ -3,6 +3,7 @@ import "./numLang.css"
 import { useDispatch } from "react-redux"
 import { setLanguage } from "../../languageSlice"
 import { useTranslation } from "react-i18next"
+import { NumButton } from "../NumButton/NumButton"
 
 function LanguageSwitcher() {
   const dispatch = useDispatch()
@@ -15,12 +16,16 @@ function LanguageSwitcher() {
 
   return (
     <div>
-      <button className="num-lang-btn" onClick={() => changeLanguage("en")}>
-        En
-      </button>
-      <button className="num-lang-btn" onClick={() => changeLanguage("ru")}>
-        Ru
-      </button>
+      <NumButton
+        type="text"
+        label={"En"}
+        onClick={() => changeLanguage("en")}
+      />
+      <NumButton
+        type="text"
+        label={"Ru"}
+        onClick={() => changeLanguage("ru")}
+      />
     </div>
   )
 }
