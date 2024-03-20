@@ -73,8 +73,7 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
     const isEvenQuestionValid = radioValue === checkOdd(nodData.value)
 
     const isThirdValid = () => {
-      if (!thirdField) return false
-      if (checkOdd(nodData.value) === "even" && nodData.value <= 1000) {
+      if (checkOdd(nodData.value) === "even") {
         return thirdField.trim() === (nodData.value / 2).toString()
       }
       return true
@@ -83,7 +82,6 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
     const isFourthValid = fourthField === (nodData.value % 3 === 0)
 
     const isFifthValid = () => {
-      if (!fifthField) return false
       if (nodData.value <= 500) {
         return fifthField.trim() === (nodData.value * 2).toString()
       }
@@ -153,8 +151,8 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
         </div>
       </div>
 
-      {/* 3-rd question */}
-      {checkOdd(nodData.value) === "even" && nodData.value <= 1000 && (
+      {/* divide by two */}
+      {checkOdd(nodData.value) === "even" && (
         <div id="thirdField" className="form-group">
           <NumTextInput
             id="thirdField"
@@ -170,10 +168,10 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
       )}
 
       {/* 4-nd question */}
-      <div id="typeOfNumber" className="form-group" role="radiogroup">
+      <div id="divisibleByThree" className="form-group" role="radiogroup">
         <label
           className={`label-text ${isFourthFieldError ? "field-error" : ""}`}
-          htmlFor="typeOfNumber"
+          htmlFor="divisibleByThree"
         >
           {`${t("divisible_by_label")} 3?`}
         </label>
