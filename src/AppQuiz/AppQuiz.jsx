@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useSelector } from "react-redux"
 import "./appQuiz.css"
 import { Button } from "../stories/Button/Button.jsx"
 import { NumTextInput } from "../stories/NumTextInput/NumTextInput.jsx"
@@ -7,6 +8,7 @@ import { NumMessage } from "../stories/NumMessage/NumMessage.jsx"
 import { checkOdd } from "../utils/index.js"
 import { numToWords } from "../utils/numToWords.js"
 import { useTranslation } from "react-i18next"
+import * as ntw from "number-to-words"
 
 export const AppQuiz = ({ className, id, nodData, ...props }) => {
   // 1-st question state
@@ -52,12 +54,21 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
   // Message state
   const [msgType, setMsgType] = useState("")
 
+  const currentLang = useSelector((state) => state.language.value)
   function handleSubmit(e) {
     e.preventDefault()
 
-    const isWordsQuestionValid =
-      firstField.toLowerCase().trim() ===
-      numToWords(nodData.value).toLowerCase().trim()
+    let isWordsQuestionValid = false
+
+    if (currentLang === "en") {
+      isWordsQuestionValid =
+        firstField.toLowerCase().trim() ===
+        ntw.toWords(nodData.value).toLowerCase()
+    } else {
+      isWordsQuestionValid =
+        firstField.toLowerCase().trim() ===
+        numToWords(nodData.value).toLowerCase().trim()
+    }
 
     const isEvenQuestionValid = radioValue === checkOdd(nodData.value)
 

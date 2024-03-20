@@ -1,9 +1,11 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
+import { Provider } from "react-redux"
 import i18n from "i18next"
 import { initReactI18next } from "react-i18next"
-import App from "./App.jsx"
+import { store } from "./store"
 import translation from "./translation.json"
+import App from "./App.jsx"
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
@@ -26,4 +28,8 @@ i18n
     },
   })
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
