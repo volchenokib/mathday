@@ -8,3 +8,12 @@
   justify-content: flex-end;
   padding: 0px 2rem;
 }
+.copyright {
+  height: 24px;
+  line-height: 24px;
+  margin-right: 0.5rem;
+}
+.social-icons {
+  height: 24px;
+  width: 24px;
+}
