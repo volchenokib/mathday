@@ -17,13 +17,13 @@ function LanguageSwitcher() {
   return (
     <div>
       <NumButton
-        type="text"
         label={"En"}
+        mode="text"
         onClick={() => changeLanguage("en")}
       />
       <NumButton
-        type="text"
         label={"Ru"}
+        mode="text"
         onClick={() => changeLanguage("ru")}
       />
     </div>

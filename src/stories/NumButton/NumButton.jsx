@@ -11,15 +11,16 @@ export const NumButton = ({
   size,
   label,
   type,
+  mode,
   ...props
 }) => {
   return (
     <button
-      type="button"
+      type={type}
       className={`
       num-button
       num-button--${size}
-      num-button--${type}`}
+      num-button--${mode}`}
       style={backgroundColor && { backgroundColor }}
       {...props}
     >
@@ -49,6 +50,7 @@ NumButton.propTypes = {
    * Optional click handler
    */
   type: PropTypes.string,
+  mode: PropTypes.string,
   onClick: PropTypes.func,
 }
 
@@ -57,5 +59,6 @@ NumButton.defaultProps = {
   primary: false,
   size: "medium",
   type: "button",
+  mode: "primary",
   onClick: undefined,
 }
