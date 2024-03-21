@@ -33,6 +33,4 @@
 
 ## Getting Started
 
-Чтобы начать работать с проектом, необходимо иметь установленные Node.js (версии ^18.0.0 || >=20.0.0) и npm (Node Package Manager). Эти инструменты позволят запустить сайт локально на компьютере.
-
-Локальная разработка сайта осуществляется через HTTPS протокол поэтому перед началом работы необходимо выпонить несколько шагов описанных в инструкции [Enabling HTTPS](https://gist.github.com/volchenokib/c6993cf1c79fef49745cf6e478dc6520)
+To start working with the project, you need to have Node installed.js (versions ^18.0.0 ||>=20.0.0) and npm (Node Package Manager). These tools will allow you to run the site locally on your computer.
