@@ -19,12 +19,12 @@
 - [ ] 4-h question for the NOD form - Q2 2024
 - [ ] Transparent sticky header - Q2 2024
 - [ ] Improve Storybook docs - Q1 2024
-- [ ] Unit tests - Q1 2024
-- [ ] SEO optimisation & analytics - Q1 2024
 - [ ] Component for donations - Q2 2024
 - [ ] Feedback component - Q1 2024
-- [ ] Success messages for the NOD form - Q1 2024
-- [ ] Error messages for the NOD form - Q1 2024
+- [x] Unit tests - Q1 2024
+- [x] SEO optimisation & analytics - Q1 2024
+- [x] Success messages for the NOD form - Q1 2024
+- [x] Error messages for the NOD form - Q1 2024
 - [x] Launch of the first version of the site - 03.14.2024
 
 ---
