@@ -21,15 +21,6 @@ export function checkCorrespondence(userAnswer, options) {
   return userAnswer === rightAnswer.value
 }
 
-export function describeHarshadNumber(n) {
-  // Преобразовываем число в массив его цифр
-  const digits = n.toString().split("").map(Number)
-  // Вычисляем сумму цифр
-  const sum = digits.reduce((acc, val) => acc + val, 0)
-  // Формируем и возвращаем результат в нужном формате
-  return `${digits.join(" + ")} = ${sum}`
-}
-
 export function isPrime(num) {
   if (num < 2) return false
   for (let i = 2; i <= Math.sqrt(num); i++) {
@@ -39,9 +30,9 @@ export function isPrime(num) {
 }
 
 function addAndToNumberString(numberString) {
-  // Проверяем, содержит ли строка слово "hundred" и не содержит ли уже "and"
+  // We check whether the string contains the word "hundred" and whether it already contains "and"
   if (numberString.includes("hundred") && !numberString.includes("and")) {
-    // Добавляем "and" после "hundred"
+    // Adding "and" after "hundred"
     return numberString.replace("hundred", "hundred and")
   }
   return numberString
