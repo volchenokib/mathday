@@ -23,7 +23,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: volchenokib/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # Таргетный бранч для GitHub Pages
           folder: dist # Каталог, где находится собранное приложение
