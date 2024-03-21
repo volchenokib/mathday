@@ -1,3 +1,4 @@
+import * as ntw from "number-to-words"
 /**
  * @returns {number} day - The current day of the year
  * @example 70
@@ -35,4 +36,24 @@ export function isPrime(num) {
     if (num % i === 0) return false
   }
   return true
+}
+
+function addAndToNumberString(numberString) {
+  // Проверяем, содержит ли строка слово "hundred" и не содержит ли уже "and"
+  if (numberString.includes("hundred") && !numberString.includes("and")) {
+    // Добавляем "and" после "hundred"
+    return numberString.replace("hundred", "hundred and")
+  }
+  return numberString
+}
+
+export function isEngWordsValid(userAnswer, rightAnswer) {
+  const rightAnswerWords = ntw.toWords(rightAnswer)
+  const rightAnswerWordsWithAnd = addAndToNumberString(rightAnswerWords)
+  const finalAnswer = [rightAnswerWordsWithAnd, rightAnswerWords]
+
+  if (finalAnswer.includes(userAnswer.toLowerCase().trim())) {
+    return true
+  }
+  return false
 }

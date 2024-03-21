@@ -5,10 +5,9 @@ import { NumButton } from "../stories/NumButton/NumButton.jsx"
 import { NumTextInput } from "../stories/NumTextInput/NumTextInput.jsx"
 import { NumRadioButton } from "../stories/NumRadioButton/NumRadioButton.jsx"
 import { NumMessage } from "../stories/NumMessage/NumMessage.jsx"
-import { checkOdd } from "../utils/index.js"
+import { checkOdd, isEngWordsValid } from "../utils/index.js"
 import { numToWords } from "../utils/numToWords.js"
 import { useTranslation } from "react-i18next"
-import * as ntw from "number-to-words"
 
 export const AppQuiz = ({ className, id, nodData, ...props }) => {
   // 1-st question state
@@ -61,9 +60,7 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
     let isWordsQuestionValid = false
 
     if (currentLang === "en") {
-      isWordsQuestionValid =
-        firstField.toLowerCase().trim() ===
-        ntw.toWords(nodData.value).toLowerCase()
+      isWordsQuestionValid = isEngWordsValid(firstField, nodData.value)
     } else {
       isWordsQuestionValid =
         firstField.toLowerCase().trim() ===
