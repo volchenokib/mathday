@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import "./numMessage.css"
 import { useTranslation } from "react-i18next"
+import "./numMessage.css"
 
 export const NumMessage = ({ type, ...props }) => {
   const { t } = useTranslation()
@@ -9,7 +9,7 @@ export const NumMessage = ({ type, ...props }) => {
     <div className={"num-message-wrapper"}>
       {type === "error" && (
         <>
-          <div className={"num-message-icon"}>❌</div>
+          <img src="/x.svg" className={"num-message-icon"} />
           <span className={"num-message-icon large"}>
             {t("incorrect_answer_msg")}
           </span>

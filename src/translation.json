@@ -13,7 +13,7 @@
     "double_label": "Double it",
     "check_btn": "Check",
     "correct_answer_msg": "Correct!",
-    "incorrect_answer_msg": "Wrong answer. Try again!",
+    "incorrect_answer_msg": "Incorrect. Try again",
     "my_name": "Igor Volchenok"
   },
   "ru": {
@@ -30,7 +30,7 @@
     "double_label": "Удвой число",
     "check_btn": "Проверить",
     "correct_answer_msg": "Верно!",
-    "incorrect_answer_msg": "Неправильно. Попробуй еще раз!",
+    "incorrect_answer_msg": "Неверно. Попробуй еще раз",
     "my_name": "Игорь Волченок"
   }
 }
