@@ -8,6 +8,7 @@
   padding: 1rem;
   margin: 0 auto;
   flex: 1;
+  align-items: center;
 }
 .app-nod-container {
   padding: 2rem;
