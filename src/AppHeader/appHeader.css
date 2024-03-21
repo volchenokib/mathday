@@ -14,3 +14,8 @@
   font-size: 1.75em;
   letter-spacing: 0.05em;
 }
+.app-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
