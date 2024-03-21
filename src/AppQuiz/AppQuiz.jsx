@@ -126,7 +126,6 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
       <div id="typeOfNumber" className="form-group" role="radiogroup">
         <label
           className={`label-text ${isSecondFieldError ? "field-error" : ""}`}
-          htmlFor="typeOfNumber"
         >
           {t("even_odd_label")}
         </label>
@@ -168,7 +167,6 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
       <div id="divisibleByThree" className="form-group" role="radiogroup">
         <label
           className={`label-text ${isFourthFieldError ? "field-error" : ""}`}
-          htmlFor="divisibleByThree"
         >
           {`${t("divisible_by_label")} 3?`}
         </label>
