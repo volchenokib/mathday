@@ -1,31 +1,35 @@
 import React from "react"
 import "./numLang.css"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { setLanguage } from "../../languageSlice"
 import { useTranslation } from "react-i18next"
-import { NumButton } from "../NumButton/NumButton"
 
 function LanguageSwitcher() {
   const dispatch = useDispatch()
   const { i18n } = useTranslation()
 
-  const changeLanguage = (language) => {
-    i18n.changeLanguage(language)
-    dispatch(setLanguage(language))
+  const currentLang = useSelector((state) => state.language.value)
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang)
+    dispatch(setLanguage(lang))
   }
 
   return (
-    <div>
-      <NumButton
-        label={"En"}
-        mode="text"
+    <div className="num-lang-container">
+      <div
+        className={`body-medium num-lang-btn ${currentLang === "en" ? "num-lang-btn--active" : ""}`}
         onClick={() => changeLanguage("en")}
-      />
-      <NumButton
-        label={"Ru"}
-        mode="text"
+      >
+        En
+      </div>
+
+      <div
+        className={`body-medium num-lang-btn ${currentLang === "ru" ? "num-lang-btn--active" : ""}`}
         onClick={() => changeLanguage("ru")}
-      />
+      >
+        Ru
+      </div>
     </div>
   )
 }
