@@ -116,8 +116,8 @@ export const AppQuiz = ({ className, id, nodData, ...props }) => {
           id="firstField"
           type={"text"}
           name={"firstField"}
-          label={t("In words")}
-          placeholder={t("Enter the number in words")}
+          label={t("in_words_label")}
+          placeholder={t("in_words_placeholder")}
           autofocus={true}
           value={firstField}
           error={isFirstFieldError}

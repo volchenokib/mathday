@@ -43,7 +43,7 @@ function AppMain() {
           <NumCard
             className={"num-card-custom"}
             title={nodData?.value.toString()}
-            subtitle={t("number of the day")}
+            subtitle={t("site_subtitle")}
           >
             <div className="form-container">
               <AppQuiz

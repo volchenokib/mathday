@@ -1,8 +1,8 @@
 {
   "en": {
-    "number of the day": "number of the day",
-    "In words": "In words",
-    "Enter the number in words": "enter the number in words",
+    "site_subtitle": "number of the day",
+    "in_words_label": "In words",
+    "in_words_placeholder": "enter the number in words",
     "even_odd_label": "Even or odd?",
     "even": "Even",
     "odd": "Odd",
@@ -17,9 +17,9 @@
     "my_name": "Igor Volchenok"
   },
   "ru": {
-    "number of the day": "число дня",
-    "In words": "Число прописью",
-    "Enter the number in words": "напиши число словами",
+    "site_subtitle": "число дня",
+    "in_words_label": "Число прописью",
+    "in_words_placeholder": "напиши число словами",
     "even_odd_label": "Какое это число?",
     "even": "Четное",
     "odd": "Нечетное",
